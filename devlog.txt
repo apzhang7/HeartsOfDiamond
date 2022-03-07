@@ -13,3 +13,9 @@ jonathanW -- 2022-03-03 11:29
 - Formatted the README.md
 - Uploaded a blank requirements.txt for later.
 - Created the tree for our app folder.
+
+jonathanW -- 2022-03-07 18:13
+- Added new HTML files in 'Hard', 'Leaderboard', and 'Normal'
+- Added some customized CSS
+- Updated the index.html to create a base layout
+- Added two more routes to the python file for our other two parts of the website.
