@@ -5,3 +5,45 @@ P02: Wordle Mania!™
 2022-03-03
 Time Spent: ??
 */
+
+/* Color Palette:
+Light Red #f55662
+Red #e63946
+White #f1faee
+Light Blue #a8dadc
+Blue #457b9d
+Dark Blue #1d3557 */
+
+body {
+  background: #457b9d;
+}
+
+.wordleNav {
+  background: #a8dadc;
+  padding: 8px;
+  box-shadow: 0px 3px 5px #1d3557;
+  font-family: 'Pragati Narrow', sans-serif;
+  font-size: 20px;
+}
+
+.nav-link {
+  margin-left: 2px;
+  margin-right: 2px;
+  color: #1d3557;
+}
+
+.nav-link:hover{
+  background: #457b9d;
+  color: #f1faee;
+  transition: 0.4s ease all;
+}
+
+#active {
+  background: #e63946;
+  color: #f1faee;
+}
+
+#active:hover {
+  background: #f55662;
+  transition: 0.4s ease all;
+}
