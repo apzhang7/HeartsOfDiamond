@@ -1,0 +1,20 @@
+<!-- Hearts of Diamond | Angela Zhang (Inky), Jonathan Wu (Loki), Jesse Xie (Polly)
+SoftDev
+P02: Wordle Mania!™
+2022-03-03
+Time Spent: ?? -->
+
+<!DOCTYPE html>
+{% extends "index.html" %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block content %}
+<nav class="wordleNav">
+  <nav class="nav nav-pills nav-justified justify-content-center">
+      <a class="nav-link" id="active" style=""href="/">Normal</a>
+      <a class="nav-link" href="/hard-wordle">Hard</a>
+      <a class="nav-link" href="/leaderboard">Leaderboard</a>
+  </nav>
+</nav>
+{% endblock %}
