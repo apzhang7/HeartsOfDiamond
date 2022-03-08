@@ -30,6 +30,7 @@ angelaZ and jesseX -- 2022-03-07 22:38
 jesseX -- 2022-03-08 08:55
 - Updated readme to have properly formatted heading and proper task allocation
 
-jonathanW -- 2022-03-08 9:06
+jonathanW -- 2022-03-08 9:13
 - Added two more routes to the python files
 - Added the 'rude' and 'zen' HTML files and adjusted the other HTMl files accordingly.
+- Changed navigation bar size to be smaller.
