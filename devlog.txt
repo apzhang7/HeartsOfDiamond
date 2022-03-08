@@ -26,3 +26,6 @@ angelaZ and jesseX -- 2022-03-07 22:38
   - Added ideas for two possible modes
   - Added api section (we have none anyways)
   - Made project description list section more specific
+  
+jesseX -- 2022-03-08 08:55
+- Updated readme to have properly formatted heading and proper task allocation
