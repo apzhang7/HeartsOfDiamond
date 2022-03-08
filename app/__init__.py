@@ -17,6 +17,14 @@ def normalWordle():
 def hardWordle():
     return render_template("hard.html")
 
+@app.route("/rude")
+def rude():
+    return render_template("rude.html")
+
+@app.route("/zen")
+def zen():
+    return render_template("zen.html")
+
 @app.route("/leaderboard")
 def leaderboard():
     return render_template("leaderboard.html")
