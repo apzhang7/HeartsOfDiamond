@@ -20,8 +20,15 @@ jonathanW -- 2022-03-07 18:13
 - Updated the index.html to create a base layout
 - Added two more routes to the python file for our other two parts of the website.
 
-angelaZ -- 2022-03-07 22:38
+angelaZ and jesseX -- 2022-03-07 22:38
 - Updated DD with the help of teams PPP Mode and Big Birds
+- Added more specific roles for task allocation
+- Added ideas for two possible modes
+- Added api section (we have none anyways)
+- Made project description list section more specific
+
+jesseX -- 2022-03-08 08:55
+- Updated readme to have properly formatted heading and proper task allocation
 
 jonathanW -- 2022-03-08 9:06
 - Added two more routes to the python files
