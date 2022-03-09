@@ -35,6 +35,10 @@ jonathanW -- 2022-03-08 09:13
 - Added the 'rude' and 'zen' HTML files and adjusted the other HTMl files accordingly.
 - Changed navigation bar size to be smaller.
 
+jesseX -- 2022-03-08 09:43
+- Added js method to create 5 by 6 grid
+  - Models grid on wordle website
+
 angelaZ -- 2022-03-08 21:32
 - Updated DD with maps for both new modes 'zen' and 'rude' mode
 - Changed project name from HeartsOfDiamond to heartsOfDiamond
