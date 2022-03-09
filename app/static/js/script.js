@@ -10,18 +10,20 @@ var requestID = false;  //init global var for use with animation frames
 
 var drawGrid = () => {
   ctx.strokeStyle = 'white';
-  for(var j = 0; j<6; j++) {
-    for(var i = 0; i<5; i++) {
-      ctx.beginPath();
-      ctx.moveTo(520+i*65, 50+j*65);
-      ctx.lineTo(580+i*65, 50+j*65);
-      ctx.stroke();
-      ctx.lineTo(580+i*65, 110+j*65);
-      ctx.stroke();
-      ctx.lineTo(520+i*65, 110+j*65);
-      ctx.stroke();
-      ctx.lineTo(520+i*65, 50+j*65);
-      ctx.stroke();
+  for(var k = 0 ; k < 2; k++) {
+    for(var j = 0; j<6; j++) {
+      for(var i = 0; i<5; i++) {
+        ctx.beginPath();
+        ctx.moveTo(4+i*65, 5+j*65);
+        ctx.lineTo(65+i*65, 5+j*65);
+        ctx.stroke();
+        ctx.lineTo(65+i*65, 65+j*65);
+        ctx.stroke();
+        ctx.lineTo(5+i*65, 65+j*65);
+        ctx.stroke();
+        ctx.lineTo(5+i*65, 5+j*65);
+        ctx.stroke();
+      }
     }
   }
 }
