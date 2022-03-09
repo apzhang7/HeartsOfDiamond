@@ -45,3 +45,6 @@ angelaZ -- 2022-03-08 21:32
 
 jonathanW -- 2022-03-08 21:52
 - Edited CSS and Canvas for the wordle grid.
+
+angelaZ -- 2022-03-09 09:18
+- Added wordle.txt file containing all 5 letter wordle words
