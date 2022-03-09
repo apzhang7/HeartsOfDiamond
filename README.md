@@ -9,6 +9,7 @@ Our project, Wordle Mania!™, is a unique take on the hit game Wordle, in which
 ---
 
 ## Project Roles:  
-* PM Angela Zhang - bootstrap and python
-* Jonathan Wu - sql and python
-* Jesse Xie - html and javascript
+* Angela (PM): bootstrap and python
+* Jonathan: sql/python and css/bootstrap
+* Jesse: html and javascript
+
