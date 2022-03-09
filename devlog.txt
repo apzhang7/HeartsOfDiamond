@@ -39,3 +39,5 @@ angelaZ -- 2022-03-08 21:32
 - Updated DD with maps for both new modes 'zen' and 'rude' mode
 - Changed project name from HeartsOfDiamond to heartsOfDiamond
 
+jonathanW -- 2022-03-08 21:52
+- Edited CSS and Canvas for the wordle grid.
