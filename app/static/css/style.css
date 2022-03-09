@@ -18,6 +18,15 @@ body {
   background: #457b9d;
 }
 
+canvas {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
 .wordleNav {
   background: #a8dadc;
   padding: 2px;
