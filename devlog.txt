@@ -48,3 +48,12 @@ jonathanW -- 2022-03-08 21:52
 
 angelaZ -- 2022-03-09 09:18
 - Added wordle.txt file containing all 5 letter wordle words
+
+jesseX -- 2022-03-09 09:42
+- Added method to listen for key presses
+- Added letter drawing to method
+- Added next line shift when pressing enter with five letters
+
+jesseX -- 2022-03-09 18:41
+- Added backspace functionality to remove letters
+- Added variables to keep track of letters and words already guessed
