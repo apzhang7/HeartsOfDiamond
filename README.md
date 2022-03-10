@@ -13,3 +13,30 @@ Our project, Wordle Mania!™, is a unique take on the hit game Wordle, in which
 * Jonathan: sql/python and css/bootstrap
 * Jesse: html and javascript
 
+
+## Launch Codes
+The following instructions assume that you have Python and pip already installed.
+
+1. Clone this repository.
+```
+$ git clone https://github.com/apzhang7/heartsOfDiamond.git
+$ cd heartsOfDiamond
+```
+
+2. Create a new virtual environment.
+```
+$ python3 -m venv env
+$ source env/bin/activate
+```
+
+3. Install the required project dependencies.
+```
+(env) $ pip3 install -r requirements.txt
+```
+
+5. Run the app.
+```
+(env) $ python3 app/__init__.py 
+```
+
+You can access our web app by going to http://localhost:5000/.
