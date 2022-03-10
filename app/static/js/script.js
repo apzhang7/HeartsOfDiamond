@@ -69,3 +69,5 @@ function letter(e) {
     }
   }
 };
+
+console.log(""+wordle);

@@ -6,12 +6,13 @@
 
 from flask import Flask
 from flask import render_template
+import random
 
 app = Flask(__name__)
 
 @app.route("/")
 def normalWordle():
-    return render_template("normal.html")
+    return render_template("normal.html",wordle = randomWord())
 
 @app.route("/hard-wordle")
 def hardWordle():
@@ -28,6 +29,13 @@ def zen():
 @app.route("/leaderboard")
 def leaderboard():
     return render_template("leaderboard.html")
+
+def randomWord():
+    with open('static/words.txt') as file:
+        words = file.readlines()
+        randomWord = words[random.randint(0,12833)][:-1]
+
+        return randomWord
 
 if __name__ == "__main__":
     app.debug = True
