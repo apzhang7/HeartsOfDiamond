@@ -58,5 +58,8 @@ jesseX -- 2022-03-09 18:41
 - Added backspace functionality to remove letters
 - Added variables to keep track of letters and words already guessed
 
+angelaZ -- 2022-03-09 23:27
+- Added launch codes to README.md
+
 jonathanW -- 2022-03-10 00:18
 - remove favicon thing fron index.html
