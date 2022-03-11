@@ -36,7 +36,8 @@ $ source env/bin/activate
 
 5. Run the app.
 ```
-(env) $ python3 app/__init__.py 
+(env) $ cd app
+(env) $ python3 __init__.py 
 ```
 
 You can access our web app by going to http://127.0.0.1:5000/.
