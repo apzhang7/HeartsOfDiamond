@@ -37,47 +37,6 @@ def randomWord():
         return randomWord
 
 
-# Words should be updated here
-wordleWord = "woops"
-entered_word= "heheh"
-
-# Lists to hold letters to compare 
-letters1 = []
-letters2 = []
-results = []
-
-# Iterate over the string to separate it into letters
-for i in wordleWord:
-    letters1.append(i)
-
-# Printing letters for reference
-for element in letters1:
-    print(element, end=' ')
-print('\n')
-
-# Iterate over the string to separate it into letters
-for i in entered_word:
-    letters2.append(i)
-
-# Printing letters for reference
-for element in letters2:
-    print(element, end=' ')
-print('\n')
-
-# Iterates over both lists to see if the letters match up
-for i in range(0, 5):
-        if (letters1[i] != letters2[i]):
-            results.append('no')
-        else:
-            results.append('same')
-
-# Printing results for reference
-for element in results:
-    print(element, end=' ')
-print('\n')
-
-
-
 if __name__ == "__main__":
     app.debug = True
     app.run()

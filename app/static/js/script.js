@@ -56,6 +56,9 @@ function letter(e) {
         letterPosition[0]++;
         letterPosition[1] = 0;
         guessedWords.push(currentLetters);
+        if (check()) {
+          letterPosition[0] = 6 ;
+        }
         currentLetters = "" ;
       }
     }
@@ -71,3 +74,14 @@ function letter(e) {
 };
 
 console.log(""+wordle);
+
+var check = () => {
+    if (currentLetters === wordle) {
+      console.log("same") ;
+      return true ;
+    }
+    else {
+      console.log("no") ;
+      return false ;
+    }
+}
