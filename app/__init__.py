@@ -33,7 +33,7 @@ def leaderboard():
 def randomWord():
     with open('static/words.txt') as file:
         words = file.readlines()
-        randomWord = words[random.randint(0,12833)][:-1]
+        randomWord = words[random.randint(0,2314)][:-1]
         return randomWord
 
 
