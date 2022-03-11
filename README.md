@@ -19,7 +19,7 @@ The following instructions assume that you have Python and pip already installed
 
 1. Clone this repository.
 ```
-$ git clone https://github.com/apzhang7/heartsOfDiamond.git
+$ git clone git@github.com:apzhang7/heartsOfDiamond.git
 $ cd heartsOfDiamond
 ```
 
@@ -39,4 +39,4 @@ $ source env/bin/activate
 (env) $ python3 app/__init__.py 
 ```
 
-You can access our web app by going to http://localhost:5000/.
+You can access our web app by going to http://127.0.0.1:5000/.
