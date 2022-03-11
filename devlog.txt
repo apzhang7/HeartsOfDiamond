@@ -74,3 +74,6 @@ angelaZ -- 2022-03-11 00:43
 - Updated DD with more accurate site maps and added details for new features
 - Added method for checking if the letters in the guess matched the wordle answer
 
+jonathanW -- 2022-03-11 9:19
+- Changed the list of possible words to 2314 from 13k
+- Changed python checking system to JS
