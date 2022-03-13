@@ -5,15 +5,21 @@
 // Time Spent: ??
 
 var c = document.getElementById("playground"); // GET CANVAS
+var k = document.getElementById("keyboard");
 var continueButton = document.getElementById('continue');
 var ctx = c.getContext('2d');
+var ktx = k.getContext('2d');
 var requestID = false;  //init global var for use with animation frames
 var letterPosition = [0,0];
+var keyboard = ['Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M'];
+var coloredKeys = [];
+var kbUsed = '#a8dadc';
 var currentLetters = "";
 var guessedWords = [];
 var correctLetterCount = 0;
 var totalScore = 0;
 var timeOn = false;
+var firstRound;
 
 // draws the initial grid to play on
 var drawGrid = () => {
@@ -33,6 +39,15 @@ var drawGrid = () => {
     ctx.fillStyle = '#a8dadc';
     ctx.fillRect(331,71,118,58);
   }
+  if (localStorage.getItem("FirstRound?") == "false") {
+    var concurrentScore = parseInt(localStorage.getItem("TotalScore"));
+    var concurrentTime = parseInt(localStorage.getItem("TimeLeft"));
+    totalScore = concurrentScore;
+    time = concurrentTime;
+    localStorage.setItem("FirstRound?", true);
+  } else {
+    localStorage.clear();
+  }
   ctx.font = '20px Pragati Narrow';
   ctx.fillStyle = '#e63946';
   ctx.fillText("Score: " +  + totalScore, 335, 40);
@@ -41,6 +56,83 @@ var drawGrid = () => {
 
 drawGrid();
 document.addEventListener("keydown",letter);
+
+// draws a keyboard
+function drawKeyboard() {
+  var kb = 10;
+  var key = 0;
+  ktx.font = '25px Pragati Narrow';
+  ktx.fillStyle = 'white';
+  ktx.fillText("Letters Remaining",143,25);
+  for (j = 0; j < 3; j++) {
+    for (i = 0; i < kb; i++) {
+      if (j <= 1) {
+        ktx.strokeStyle = 'black'
+        ktx.strokeRect(5+(i*44)+(j*22),35+(j*44),39,39);
+        ktx.fillStyle = kbUsed;
+        ktx.fillRect(6+(i*44)+(j*22),36+(j*44),37,37);
+        ktx.fillStyle = 'black';
+        ktx.font = '30px Pragati Narrow';
+        ktx.fillText(keyboard[key],17+(i*44)+(j*22),64+(j*44));
+      } else if (j == 2) {
+        ktx.strokeStyle = 'black'
+        ktx.strokeRect(5+(i*44)+(j*33),35+(j*44),39,39);
+        ktx.fillStyle = kbUsed;
+        ktx.fillRect(6+(i*44)+(j*33),36+(j*44),37,37);
+        ktx.fillStyle = 'black';
+        ktx.font = '30px Pragati Narrow';
+        ktx.fillText(keyboard[key],39+(i*44)+(j*22),64+(j*44));
+
+      }
+      key++;
+    }
+    kb = kb - j - 1;
+  }
+}
+
+// draws the specific key to a specific color
+function drawKey(keyNum, color) {
+  var indexKey = keyboard.indexOf(keyNum);
+  var kb = 10;
+  var key = 0;
+  ktx.font = '25px Pragati Narrow';
+  ktx.fillStyle = 'white';
+  ktx.fillText("Letters Remaining",143,25);
+  for (j = 0; j < 3; j++) {
+    for (i = 0; i < kb; i++) {
+      if (key == indexKey && !coloredKeys.includes(keyNum)) {
+        if (j <= 1) {
+          ktx.strokeStyle = 'black'
+          ktx.strokeRect(5+(i*44)+(j*22),35+(j*44),39,39);
+          ktx.globalAlpha = 0.5;
+          ktx.fillStyle = color;
+          ktx.fillRect(6+(i*44)+(j*22),36+(j*44),37,37);
+          ktx.globalAlpha = 1;
+          ktx.fillStyle = 'black';
+          ktx.font = '30px Pragati Narrow';
+          ktx.fillText(keyboard[key],17+(i*44)+(j*22),64+(j*44));
+        } else if (j == 2) {
+          ktx.strokeStyle = 'black'
+          ktx.strokeRect(5+(i*44)+(j*33),35+(j*44),39,39);
+          ktx.globalAlpha = 0.5;
+          ktx.fillStyle = color;
+          ktx.fillRect(6+(i*44)+(j*33),36+(j*44),37,37);
+          ktx.globalAlpha = 1;
+          ktx.fillStyle = 'black';
+          ktx.font = '30px Pragati Narrow';
+          ktx.fillText(keyboard[key],39+(i*44)+(j*22),64+(j*44));
+        }
+      }
+      key++;
+    }
+    kb = kb - j - 1;
+  }
+  if (!coloredKeys.includes(keyNum)) {
+    coloredKeys.push(keyNum);
+  }
+}
+
+drawKeyboard();
 
 // updates the score once called upon
 function scoreCalc () {
@@ -59,21 +151,34 @@ function scoreCalc () {
 
 // checks the word to see if it matches the generated word and colors the box appropriately
 var wordCheck = () => {
-  var guess = guessedWords[guessedWords.length-1];
-  correctLetterCount = 0;
-  for (var i = 0; i < 5; i++) {
-    if (guess.charAt(i) === wordle.charAt(i)) {
-      ctx.fillStyle = 'green';
-      correctLetterCount++;
-    } else if (wordle.includes(guess.charAt(i))) {
-      ctx.fillStyle = 'yellow';
-    } else {
-      ctx.fillStyle = 'gray';
+  var guess =  currentLetters;
+  // checks if the guessed word is inside the word bank
+  if (wordBank.includes(guess.toLowerCase())) {
+    guessedWords.push(currentLetters);
+    correctLetterCount = 0;
+    for (var i = 0; i < 5; i++) {
+      if (guess.charAt(i) === wordle.charAt(i)) {
+        ctx.fillStyle = 'green';
+        correctLetterCount++;
+        drawKey(guess.charAt(i).toUpperCase(), 'green');
+      } else if (wordle.includes(guess.charAt(i))) {
+        ctx.fillStyle = 'yellow';
+        drawKey(guess.charAt(i).toUpperCase(), 'yellow');
+      } else {
+        ctx.fillStyle = 'red';
+        drawKey(guess.charAt(i).toUpperCase(), 'red');
+      }
+      // makes the rectangle transparent so that you can still see the letter
+      ctx.globalAlpha = 0.15;
+      ctx.fillRect(6+(i*65),6+((guessedWords.length-1)*65),58,58);
+      ctx.globalAlpha = 1;
     }
-    // makes the rectangle transparent so that you can still see the letter
-    ctx.globalAlpha = 0.15;
-    ctx.fillRect(6+(i*65),6+((guessedWords.length-1)*65),58,58);
-    ctx.globalAlpha = 1;
+
+    return true;
+  } else {
+    showMessage();
+    kbUsed = '#a8dadc';
+    return false;
   }
 }
 
@@ -97,25 +202,26 @@ function letter(e) {
         console.log("full");
         // next line if enter
         if (key == 13 && letterPosition[0] != 6) {
-          letterPosition[0]++;
-          if (letterPosition[0] == 6) {
-            time = 0;
-            showMessage();
+          if (wordCheck()) {
+            continueButton.text = "Game is in session.";
+            letterPosition[0]++;
+            if (letterPosition[0] == 6) {
+              time = 0;
+              showMessage();
+            }
+            letterPosition[1] = 0;
+            if (check()) {
+              letterPosition[0] = 6;
+              time += 60;
+              showMessage();
+              scoreCalc();
+            }
+            if (timeOn == false && correctLetterCount != 5) {
+              gameTimer();
+              timeOn = true;
+            }
+            currentLetters = "" ;
           }
-          letterPosition[1] = 0;
-          guessedWords.push(currentLetters);
-          wordCheck();
-          if (check()) {
-            letterPosition[0] = 6;
-            showMessage();
-            scoreCalc();
-            time += 60;
-          }
-          if (timeOn == false && correctLetterCount != 5) {
-            gameTimer();
-            timeOn = true;
-          }
-          currentLetters = "" ;
         }
       } else {
         // add letter to list and grid
@@ -144,7 +250,6 @@ var gameTimer = () => {
       ctx.fillRect(331,71,118,58);
       ctx.fillStyle = '#e63946';
       ctx.fillText("Time Left: " + newTime + "s", 335, 105);
-      continueButton.text = "Game is in session."
       if (newTime <= 0) {
         ctx.clearRect(331,71,118,58);
         ctx.font = '20px Pragati Narrow';
@@ -155,6 +260,7 @@ var gameTimer = () => {
         clearInterval(id);
         time = newTime;
         timeOn = false;
+        showMessage();
         scoreCalc();
       } else if (correctLetterCount == 5) {
         time = newTime;
@@ -164,10 +270,13 @@ var gameTimer = () => {
         ctx.fillRect(331,71,118,58);
         ctx.fillStyle = '#e63946';
         ctx.fillText("Time Left: " + time + "s", 335, 105);
+      } else {
+        continueButton.text = "Game is in session.";
       }
   }, 1000); // update about every second
 }
 
+// displays various messages
 function showMessage() {
   if (correctLetterCount == 5) {
     var sec = 4;
@@ -180,17 +289,20 @@ function showMessage() {
         ctx.fillRect(6,396, c.width-12, 58);
         ctx.fillStyle = 'black';
         ctx.font = '25px Pragati Narrow';
-        ctx.fillText("Splendid! New word in " + sec, 125, 430);
+        ctx.fillText("Splendid! New word in " + sec + ".", 125, 430);
       } else {
         clearInterval(idInterval);
         ctx.clearRect(4,394,c.width,62);
-        continueButton.href = "/";
-        continueButton.text = "Continue"
         continueButton.style.color = "#1d3557";
         continueButton.style.background = '#a8dadc';
+        continueButton.text = "Loading word...";
+        localStorage.setItem("TotalScore", totalScore);
+        localStorage.setItem("FirstRound?", false);
+        localStorage.setItem("TimeLeft", time);
+        window.location.replace("/");
       }
     }, 1000);
-  } else {
+  } else if (correctLetterCount < 5 && time <= 0) {
     ctx.strokeStyle = 'black';
     ctx.strokeRect(5,395,c.width-10,60);
     ctx.strokeRect(5,395,c.width-10,60);
@@ -203,6 +315,18 @@ function showMessage() {
     continueButton.text = "Try Again?"
     continueButton.style.color = "#1d3557";
     continueButton.style.background = '#a8dadc';
+  } else {
+    ctx.strokeStyle = 'black';
+    ctx.strokeRect(5,395,c.width-10,60);
+    ctx.strokeRect(5,395,c.width-10,60);
+    ctx.fillStyle = '#4df06b';
+    ctx.fillRect(6,396, c.width-12, 58);
+    ctx.fillStyle = 'black';
+    ctx.font = '25px Pragati Narrow';
+    ctx.fillText(currentLetters + " is not a word. Try again!", 95, 430);
+    setTimeout(function() {
+      ctx.clearRect(4,394,c.width,62);
+    }, 1000);
   }
 }
 
