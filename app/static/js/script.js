@@ -15,7 +15,9 @@ var correctLetterCount = 0;
 var totalScore = 0;
 var timeOn = false;
 var lettersLeft = wordle ;
-
+var frame = 0 ;
+var column = 0 ;
+var fillColors ;
 // draws the initial grid to play on
 var drawGrid = () => {
   for(var k = 0 ; k<2; k++) {
@@ -62,7 +64,7 @@ function scoreCalc () {
 var wordCheck = () => {
   var guess = guessedWords[guessedWords.length-1];
   correctLetterCount = 0;
-  var fillColors = ['gray','gray','gray','gray','gray'] ;
+  fillColors = ['black','black','black','black','black'] ;
   for (var i = 0; i < 5; i++) {
     if (guess.charAt(i) === lettersLeft.charAt(i)) {
       lettersLeft = lettersLeft.substring(0,i)+' '+lettersLeft.substring(i+1,5) ;
@@ -76,13 +78,26 @@ var wordCheck = () => {
       fillColors[i] = 'yellow';
     }
     // makes the rectangle transparent so that you can still see the letter
-    ctx.fillStyle = fillColors[i] ;
-    ctx.globalAlpha = 0.15;
-    ctx.fillRect(6+(i*65),6+((guessedWords.length-1)*65),58,58);
-    ctx.globalAlpha = 1;
-
   }
+  fillSquare() ;
   lettersLeft = wordle ;
+}
+
+var fillSquare = () => {
+  frame+=2 ;
+  ctx.fillStyle = fillColors[column] ;
+  ctx.globalAlpha = 0.2;
+  ctx.fillRect(6+(column*65),5+((guessedWords.length-1)*65)+frame,58,2);
+  ctx.globalAlpha = 1;
+  requestID = window.requestAnimationFrame(fillSquare) ;
+  if (frame >= 58) {
+    column++;
+    frame = 0 ;
+    if (column >= 5) {
+      column = 0 ;
+      window.cancelAnimationFrame(requestID);
+    }
+  }
 }
 
 // function for keypresses
