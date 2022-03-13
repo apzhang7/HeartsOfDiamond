@@ -92,3 +92,5 @@ jonathanW -- 2022-03-13 18:33
 - Added a design doc
   - Changed wrong letter from gray to red
 - HTML can process word bank
+- Dynamic time in JS
+- Added other modes in HTML
