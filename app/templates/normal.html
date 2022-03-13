@@ -13,15 +13,20 @@ Time Spent: ?? -->
 <style>
   body {
     background-image: url('https://filmdaily.co/wp-content/uploads/2021/02/Bliss-lede.jpg');
-  }
+  } */
 </style>
 <nav class="wordleNav">
   <nav class="nav nav-pills nav-justified justify-content-center">
-      <a class="nav-link" id="active" style=""href="/">Normal</a>
-      <a class="nav-link" href="/hard-wordle">Hard</a>
-      <a class="nav-link" href="/rude">Rude</a>
-      <a class="nav-link" href="/zen">Zen</a>
-      <a class="nav-link" href="/leaderboard">Leaderboard</a>
+    <a class="nav-link" id="active" style=""href="/">Normal</a>
+    <a class="nav-link" href="/hard-wordle">Hard</a>
+    <a class="nav-link" href="/rude">Rude</a>
+    <a class="nav-link" href="/zen">Zen</a>
+    <a class="nav-link" href="/leaderboard">Leaderboard</a>
   </nav>
+  <script>
+      var wordle = "{{ wordle }}";
+      var time = {{ defaultTime }};
+      wordle = wordle.toUpperCase();
+  </script>
 </nav>
 {% endblock %}
