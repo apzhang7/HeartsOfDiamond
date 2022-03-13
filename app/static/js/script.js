@@ -84,10 +84,12 @@ var wordCheck = () => {
 }
 
 var fillSquare = () => {
-  frame+=2 ;
+  frame+=4 ;
+  speed = 4 ;
+  if (frame >= 58) speed-=2 ;
   ctx.fillStyle = fillColors[column] ;
   ctx.globalAlpha = 0.2;
-  ctx.fillRect(6+(column*65),5+((guessedWords.length-1)*65)+frame,58,2);
+  ctx.fillRect(6+(column*65),2+((guessedWords.length-1)*65)+frame,58,speed);
   ctx.globalAlpha = 1;
   requestID = window.requestAnimationFrame(fillSquare) ;
   if (frame >= 58) {
