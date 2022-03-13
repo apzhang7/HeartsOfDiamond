@@ -20,7 +20,6 @@ var correctLetterCount = 0;
 var totalScore = 0;
 var timeOn = false;
 var firstRound;
-
 // draws the initial grid to play on
 var drawGrid = () => {
   for(var k = 0 ; k<2; k++) {
@@ -163,7 +162,7 @@ var wordCheck = () => {
         drawKey(guess.charAt(i).toUpperCase(), 'green');
       } else if (wordle.includes(guess.charAt(i))) {
         ctx.fillStyle = 'yellow';
-        drawKey(guess.charAt(i).toUpperCase(), 'yellow');
+        drawKey(guess.charAt(i).toUpperCase(), 'green');
       } else {
         ctx.fillStyle = 'red';
         drawKey(guess.charAt(i).toUpperCase(), 'red');
