@@ -13,19 +13,19 @@ app = Flask(__name__)
 
 @app.route("/")
 def normalWordle():
-    return render_template("normal.html", wordle = randomWord(), defaultTime = 180, words = wordBank())
+    return render_template("normal.html", wordle = randomWord(), defaultTime = 180, words = wordBank(), addTime = 60, mode = "/")
 
 @app.route("/hard-wordle")
 def hardWordle():
-    return render_template("hard.html")
+    return render_template("hard.html", wordle = randomWord(), defaultTime = 90, words = wordBank(), addTime = 30, mode = "/hard-wordle")
 
 @app.route("/rude")
 def rude():
-    return render_template("rude.html")
+    return render_template("rude.html", wordle = randomWord(), defaultTime = 180, words = wordBank(), addTime = 60, mode = "/rude")
 
 @app.route("/zen")
 def zen():
-    return render_template("zen.html")
+    return render_template("zen.html", wordle = randomWord(), defaultTime = 2**53-1, words = wordBank(), addTime = 0, mode = "/zen")
 
 @app.route("/leaderboard")
 def leaderboard():
