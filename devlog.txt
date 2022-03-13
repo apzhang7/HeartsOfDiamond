@@ -84,3 +84,11 @@ jonathanW -- 2022-03-13 03:35
 - Created a lot more animations in JS
 - Added button to HTML file and more styling
 - Moved script to normal HTML file
+
+jonathanW -- 2022-03-13 18:33
+- Added ability to pass through word bank
+- More styling from CSS
+- More animations and drawings from JS
+- Added a design doc
+  - Changed wrong letter from gray to red
+- HTML can process word bank
