@@ -18,5 +18,12 @@ Time Spent: ?? -->
       <a class="nav-link" id="active" href="/zen">Zen</a>
       <a class="nav-link" href="/leaderboard">Leaderboard</a>
   </nav>
+  <script>
+      var wordle = "{{ wordle }}";
+      var time = {{ defaultTime }};
+      var moreTime = {{ addTime }};
+      var gamemode = "{{ mode }}";
+      wordle = wordle.toUpperCase();
+  </script>
 </nav>
 {% endblock %}
