@@ -77,3 +77,10 @@ angelaZ -- 2022-03-11 00:43
 jonathanW -- 2022-03-11 9:19
 - Changed the list of possible words to 2314 from 13k
 - Changed python checking system to JS
+
+jonathanW -- 2022-03-13 03:35
+- Passed more variables into python and reduced word count 1
+- Added more CSS styling
+- Created a lot more animations in JS
+- Added button to HTML file and more styling
+- Moved script to normal HTML file
