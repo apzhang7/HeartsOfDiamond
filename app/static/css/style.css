@@ -16,27 +16,54 @@ Dark Blue #1d3557 */
 
 body {
   background: #457b9d;
+  overflow: hidden;
+  font-family: 'Pragati Narrow', sans-serif;
 }
 
-canvas {
-  background: gray;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: block;
+#wordleGrid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#continue {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 100px;
+  color: white;
+  width: 446px;
+  height: 60px;
+  font-size: 25px;
+  border-color: white;
+  border-width: 2px;
+  border-style: solid;
+  background: #e63946;
+}
 
+.titleName {
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100px;
+}
+
+h1 {
+  color: white;
+  text-shadow: 0px 0px 10px black;
+  text-align: center;
+  margin-bottom: 0;
+  font-size: 50px;
 }
 
 .wordleNav {
   background: #a8dadc;
+  overflow: hidden;
   padding: 2px;
   box-shadow: 0px 3px 5px #1d3557;
-  font-family: 'Pragati Narrow', sans-serif;
   font-size: 20px;
 }
 
