@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def normalWordle():
-    return render_template("normal.html",wordle = randomWord())
+    return render_template("normal.html", wordle = randomWord(), defaultTime = 180)
 
 @app.route("/hard-wordle")
 def hardWordle():
@@ -33,9 +33,8 @@ def leaderboard():
 def randomWord():
     with open('static/words.txt') as file:
         words = file.readlines()
-        randomWord = words[random.randint(0,2314)][:-1]
+        randomWord = words[random.randint(0,2313)][:-1]
         return randomWord
-
 
 if __name__ == "__main__":
     app.debug = True
