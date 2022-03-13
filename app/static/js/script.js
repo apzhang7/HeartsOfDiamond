@@ -49,8 +49,17 @@ var drawGrid = () => {
   }
   ctx.font = '20px Pragati Narrow';
   ctx.fillStyle = '#e63946';
+  if (time > Math.pow(10,10)) {
+    ctx.clearRect(331,71,118,58);
+    ctx.font = '20px Pragati Narrow';
+    ctx.fillStyle = '#a8dadc';
+    ctx.fillRect(331,71,118,58);
+    ctx.fillStyle = '#e63946';
+    ctx.fillText("Time Left: Inf", 335, 105);
+  } else {
+    ctx.fillText("Time Left: " + time + "s", 335, 105);
+  }
   ctx.fillText("Score: " +  + totalScore, 335, 40);
-  ctx.fillText("Time Left: " + time + "s", 335, 105);
 }
 
 drawGrid();
@@ -211,7 +220,7 @@ function letter(e) {
             letterPosition[1] = 0;
             if (check()) {
               letterPosition[0] = 6;
-              time += 60;
+              time += moreTime;
               showMessage();
               scoreCalc();
             }
@@ -239,40 +248,49 @@ console.log(wordle);
 
 // a timer to time the game
 var gameTimer = () => {
-  var startTimer = Date.now();
-  var id = setInterval(function() {
-      var timeElapsed = Date.now() - startTimer; // time passed
-      var newTime = time - (Math.floor(timeElapsed/1000)); // in seconds
-      ctx.clearRect(331,71,118,58);
-      ctx.font = '20px Pragati Narrow';
-      ctx.fillStyle = '#a8dadc';
-      ctx.fillRect(331,71,118,58);
-      ctx.fillStyle = '#e63946';
-      ctx.fillText("Time Left: " + newTime + "s", 335, 105);
-      if (newTime <= 0) {
+  if (time > Math.pow(10,10)) {
+    ctx.clearRect(331,71,118,58);
+    ctx.font = '20px Pragati Narrow';
+    ctx.fillStyle = '#a8dadc';
+    ctx.fillRect(331,71,118,58);
+    ctx.fillStyle = '#e63946';
+    ctx.fillText("Time Left: inf", 335, 105);
+  } else {
+    var startTimer = Date.now();
+    var id = setInterval(function() {
+        var timeElapsed = Date.now() - startTimer; // time passed
+        var newTime = time - (Math.floor(timeElapsed/1000)); // in seconds
         ctx.clearRect(331,71,118,58);
         ctx.font = '20px Pragati Narrow';
         ctx.fillStyle = '#a8dadc';
         ctx.fillRect(331,71,118,58);
         ctx.fillStyle = '#e63946';
-        ctx.fillText("Time Left: N/A", 335, 105);
-        clearInterval(id);
-        time = newTime;
-        timeOn = false;
-        showMessage();
-        scoreCalc();
-      } else if (correctLetterCount == 5) {
-        time = newTime;
-        clearInterval(id);
-        ctx.font = '20px Pragati Narrow';
-        ctx.fillStyle = '#a8dadc';
-        ctx.fillRect(331,71,118,58);
-        ctx.fillStyle = '#e63946';
-        ctx.fillText("Time Left: " + time + "s", 335, 105);
-      } else {
-        continueButton.text = "Game is in session.";
-      }
-  }, 1000); // update about every second
+        ctx.fillText("Time Left: " + newTime + "s", 335, 105);
+        if (newTime <= 0) {
+          ctx.clearRect(331,71,118,58);
+          ctx.font = '20px Pragati Narrow';
+          ctx.fillStyle = '#a8dadc';
+          ctx.fillRect(331,71,118,58);
+          ctx.fillStyle = '#e63946';
+          ctx.fillText("Time Left: N/A", 335, 105);
+          clearInterval(id);
+          time = newTime;
+          timeOn = false;
+          showMessage();
+          scoreCalc();
+        } else if (correctLetterCount == 5) {
+          time = newTime;
+          clearInterval(id);
+          ctx.font = '20px Pragati Narrow';
+          ctx.fillStyle = '#a8dadc';
+          ctx.fillRect(331,71,118,58);
+          ctx.fillStyle = '#e63946';
+          ctx.fillText("Time Left: " + time + "s", 335, 105);
+        } else {
+          continueButton.text = "Game is in session.";
+        }
+      }, 1000); // update about every second
+    }
 }
 
 // displays various messages
@@ -298,7 +316,7 @@ function showMessage() {
         localStorage.setItem("TotalScore", totalScore);
         localStorage.setItem("FirstRound?", false);
         localStorage.setItem("TimeLeft", time);
-        window.location.replace("/");
+        window.location.replace(gamemode);
       }
     }, 1000);
   } else if (correctLetterCount < 5 && time <= 0) {
@@ -310,7 +328,7 @@ function showMessage() {
     ctx.fillStyle = 'black';
     ctx.font = '25px Pragati Narrow';
     ctx.fillText("The word was: " + wordle, 130, 430);
-    continueButton.href = "/";
+    continueButton.href = gamemode;
     continueButton.text = "Try Again?"
     continueButton.style.color = "#1d3557";
     continueButton.style.background = '#a8dadc';
