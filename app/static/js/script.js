@@ -67,14 +67,14 @@ var wordCheck = () => {
   fillColors = ['black','black','black','black','black'] ;
   for (var i = 0; i < 5; i++) {
     if (guess.charAt(i) === lettersLeft.charAt(i)) {
-      lettersLeft = lettersLeft.substring(0,i)+' '+lettersLeft.substring(i+1,5) ;
+      lettersLeft = lettersLeft.substring(0,i)+'_'+lettersLeft.substring(i+1,5) ;
       fillColors[i] = 'green';
       correctLetterCount++;
       console.log(lettersLeft);
     }
   }
   for (var i = 0; i < 5; i++) {
-    if (lettersLeft.includes(guess.charAt(i))) {
+    if ((lettersLeft.includes(guess.charAt(i))) & (fillColors[i] != 'green')) {
       fillColors[i] = 'yellow';
     }
     // makes the rectangle transparent so that you can still see the letter
