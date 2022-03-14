@@ -4,8 +4,8 @@
 # 2022-03-03
 # Time Spent: ??
 
-from flask import Flask
-from flask import render_template
+from flask import Flask, render_template
+import sqlite3
 import random
 import html
 

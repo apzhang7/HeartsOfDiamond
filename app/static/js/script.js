@@ -366,6 +366,7 @@ function showMessage() {
     continueButton.text = "Try Again?"
     continueButton.style.color = "#1d3557";
     continueButton.style.background = '#a8dadc';
+    document.getElementById("finalScoring").innerHTML = totalScore;
   } else {
     ctx.strokeStyle = 'black';
     ctx.strokeRect(5,395,c.width-10,60);
