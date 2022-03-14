@@ -396,23 +396,13 @@ var check = () => {
     }
 }
 
-
+var endGame = () => {
+  if (time > 0) {
+    time = 0;
+  }
+}
 
 var btn = document.createElement("button");
 btn.innerHTML = "End Game?";
-btn.onclick = endGame();
+btn.addEventListener("click",endGame);
 document.body.appendChild(btn);
-
-function endGame() {
-  if (time > 0) {
-    showMessage();
-    time == 0;
-    document.getElementById("finalScoring").innerHTML = totalScore;
-  }
-  ctx.clearRect(331,136,118,58);
-  ctx.font = '20px Pragati Narrow';
-  ctx.fillStyle = '#a8dadc';
-  ctx.fillRect(331,136,118,58);
-  ctx.fillStyle = '#e63946';
-  ctx.fillText("End Game?", 335, 170);
-}
