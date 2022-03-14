@@ -107,3 +107,6 @@ jesseX -- 2022-03-13 20:14
 - Changed wrong letter color back to gray/black from red
 - Remerged code after it was overwritten (restored unveil animation)
 - Fixed error that prevented keys that are highlighted in yellow from being colored correctly to green
+
+angelaZ -- 2022-03-14 01:18
+- Created hidden paragraph in html to save the finalScoring of the player from JS
