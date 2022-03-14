@@ -41,6 +41,9 @@ var drawGrid = () => {
     ctx.strokeRect(330,70,120,60);
     ctx.fillStyle = '#a8dadc';
     ctx.fillRect(331,71,118,58);
+    ctx.strokeRect(330,135,120,60);
+    ctx.fillStyle = '#a8dadc';
+    ctx.fillRect(331,136,118,58);
   }
   if (localStorage.getItem("FirstRound?") == "false") {
     var concurrentScore = parseInt(localStorage.getItem("TotalScore"));
@@ -366,7 +369,6 @@ function showMessage() {
     continueButton.text = "Try Again?"
     continueButton.style.color = "#1d3557";
     continueButton.style.background = '#a8dadc';
-    document.getElementById("finalScoring").innerHTML = totalScore;
   } else {
     ctx.strokeStyle = 'black';
     ctx.strokeRect(5,395,c.width-10,60);
@@ -392,4 +394,25 @@ var check = () => {
       console.log("no") ;
       return false ;
     }
+}
+
+
+
+var btn = document.createElement("button");
+btn.innerHTML = "End Game?";
+btn.onclick = endGame();
+document.body.appendChild(btn);
+
+function endGame() {
+  if (time > 0) {
+    showMessage();
+    time == 0;
+    document.getElementById("finalScoring").innerHTML = totalScore;
+  }
+  ctx.clearRect(331,136,118,58);
+  ctx.font = '20px Pragati Narrow';
+  ctx.fillStyle = '#a8dadc';
+  ctx.fillRect(331,136,118,58);
+  ctx.fillStyle = '#e63946';
+  ctx.fillText("End Game?", 335, 170);
 }
