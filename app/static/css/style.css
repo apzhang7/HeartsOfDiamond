@@ -26,6 +26,19 @@ body {
   align-items: center;
 }
 
+#giveUp {
+  background: #a8dadc;
+  width: 118px;
+  height: 56px;
+  color: #f55662;
+  position:relative;
+  left:-124px;
+  top:-65px;
+  text-align: left;
+  font-size: 20px;
+  border: none;
+
+}
 #continue {
   display: flex;
   justify-content: center;
