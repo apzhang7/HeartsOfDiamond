@@ -12,7 +12,7 @@ var ktx = k.getContext('2d');
 var requestID = false;  //init global var for use with animation frames
 var letterPosition = [0,0];
 var keyboard = ['Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M'];
-var coloredKeys = [];
+var lockedKeys = [];
 var kbUsed = '#a8dadc';
 var currentLetters = "";
 var guessedWords = [];
@@ -20,6 +20,10 @@ var correctLetterCount = 0;
 var totalScore = 0;
 var timeOn = false;
 var firstRound;
+var lettersLeft = wordle ;
+var frame = 0 ;
+var column = 0 ;
+var fillColors ;
 // draws the initial grid to play on
 var drawGrid = () => {
   for(var k = 0 ; k<2; k++) {
@@ -108,8 +112,11 @@ function drawKey(keyNum, color) {
   ktx.fillText("Letters Remaining",143,25);
   for (j = 0; j < 3; j++) {
     for (i = 0; i < kb; i++) {
-      if (key == indexKey && !coloredKeys.includes(keyNum)) {
+      if (key == indexKey && !lockedKeys.includes(keyNum)) {
         if (j <= 1) {
+          ktx.clearRect(5+(i*44)+(j*22),35+(j*44),39,39);
+          ktx.fillStyle = kbUsed;
+          ktx.fillRect(6+(i*44)+(j*22),36+(j*44),37,37);
           ktx.strokeStyle = 'black'
           ktx.strokeRect(5+(i*44)+(j*22),35+(j*44),39,39);
           ktx.globalAlpha = 0.5;
@@ -120,6 +127,9 @@ function drawKey(keyNum, color) {
           ktx.font = '30px Pragati Narrow';
           ktx.fillText(keyboard[key],17+(i*44)+(j*22),64+(j*44));
         } else if (j == 2) {
+          ktx.clearRect(6+(i*44)+(j*33),36+(j*44),37,37);
+          ktx.fillStyle = kbUsed;
+          ktx.fillRect(6+(i*44)+(j*33),36+(j*44),37,37);
           ktx.strokeStyle = 'black'
           ktx.strokeRect(5+(i*44)+(j*33),35+(j*44),39,39);
           ktx.globalAlpha = 0.5;
@@ -135,8 +145,8 @@ function drawKey(keyNum, color) {
     }
     kb = kb - j - 1;
   }
-  if (!coloredKeys.includes(keyNum)) {
-    coloredKeys.push(keyNum);
+  if (!lockedKeys.includes(keyNum) && color != 'yellow') {
+    lockedKeys.push(keyNum);
   }
 }
 
@@ -164,29 +174,53 @@ var wordCheck = () => {
   if (wordBank.includes(guess.toLowerCase())) {
     guessedWords.push(currentLetters);
     correctLetterCount = 0;
+    fillColors = ['black','black','black','black','black'] ;
     for (var i = 0; i < 5; i++) {
-      if (guess.charAt(i) === wordle.charAt(i)) {
-        ctx.fillStyle = 'green';
+      if (guess.charAt(i) === lettersLeft.charAt(i)) {
+        lettersLeft = lettersLeft.substring(0,i)+'_'+lettersLeft.substring(i+1,5) ;
+        fillColors[i] = 'green';
         correctLetterCount++;
         drawKey(guess.charAt(i).toUpperCase(), 'green');
-      } else if (wordle.includes(guess.charAt(i))) {
-        ctx.fillStyle = 'yellow';
-        drawKey(guess.charAt(i).toUpperCase(), 'green');
-      } else {
-        ctx.fillStyle = 'red';
-        drawKey(guess.charAt(i).toUpperCase(), 'red');
+        console.log(lettersLeft);
       }
-      // makes the rectangle transparent so that you can still see the letter
-      ctx.globalAlpha = 0.15;
-      ctx.fillRect(6+(i*65),6+((guessedWords.length-1)*65),58,58);
-      ctx.globalAlpha = 1;
     }
+    for (var i = 0; i < 5; i++) {
+      if ((lettersLeft.includes(guess.charAt(i))) & (fillColors[i] != 'green')) {
+        fillColors[i] = 'yellow';
+        drawKey(guess.charAt(i).toUpperCase(), 'yellow');
+      }
+      else {
+        drawKey(guess.charAt(i).toUpperCase(), 'black');
+      }
+  // makes the rectangle transparent so that you can still see the letter
+  }
+  fillSquare() ;
+  lettersLeft = wordle ;
 
     return true;
   } else {
     showMessage();
     kbUsed = '#a8dadc';
     return false;
+  }
+}
+
+var fillSquare = () => {
+  frame+=4 ;
+  speed = 4 ;
+  if (frame >= 58) speed-=2 ;
+  ctx.fillStyle = fillColors[column] ;
+  ctx.globalAlpha = 0.2;
+  ctx.fillRect(6+(column*65),2+((guessedWords.length-1)*65)+frame,58,speed);
+  ctx.globalAlpha = 1;
+  requestID = window.requestAnimationFrame(fillSquare) ;
+  if (frame >= 58) {
+    column++;
+    frame = 0 ;
+    if (column >= 5) {
+      column = 0 ;
+      window.cancelAnimationFrame(requestID);
+    }
   }
 }
 
