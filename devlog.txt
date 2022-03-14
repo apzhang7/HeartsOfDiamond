@@ -74,6 +74,9 @@ angelaZ -- 2022-03-11 00:43
 - Updated DD with more accurate site maps and added details for new features
 - Added method for checking if the letters in the guess matched the wordle answer
 
+jesseX -- 2022-03-11 9:00
+- Moved code for checking guess/wordle from python to js
+
 jonathanW -- 2022-03-11 9:19
 - Changed the list of possible words to 2314 from 13k
 - Changed python checking system to JS
@@ -85,6 +88,11 @@ jonathanW -- 2022-03-13 03:35
 - Added button to HTML file and more styling
 - Moved script to normal HTML file
 
+jesseX -- 2022-03-13 17:32
+- Corrected error with displaying letters that are already in the word but also in another spot in the guess as yellow
+- Added animation for unveiling whether or not the letter is in the word
+- Fixed error with displaying wrong color if letter repeats itself in the guess
+
 jonathanW -- 2022-03-13 18:33
 - Added ability to pass through word bank
 - More styling from CSS
@@ -94,3 +102,8 @@ jonathanW -- 2022-03-13 18:33
 - HTML can process word bank
 - Dynamic time in JS
 - Added other modes in HTML
+
+jesseX -- 2022-03-13 20:14
+- Changed wrong letter color back to gray/black from red
+- Remerged code after it was overwritten (restored unveil animation)
+- Fixed error that prevented keys that are highlighted in yellow from being colored correctly to green
