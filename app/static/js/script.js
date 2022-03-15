@@ -24,6 +24,7 @@ var lettersLeft = wordle ;
 var frame = 0 ;
 var column = 0 ;
 var fillColors ;
+var animating = false ;
 // draws the initial grid to play on
 var drawGrid = () => {
   for(var k = 0 ; k<2; k++) {
@@ -209,6 +210,7 @@ var wordCheck = () => {
 }
 
 var fillSquare = () => {
+  animating = true ;
   frame+=4 ;
   speed = 4 ;
   if (frame >= 58) speed-=2 ;
@@ -222,6 +224,7 @@ var fillSquare = () => {
     frame = 0 ;
     if (column >= 5) {
       column = 0 ;
+      animating = false ;
       window.cancelAnimationFrame(requestID);
     }
   }
@@ -246,7 +249,7 @@ function letter(e) {
       if (letterPosition[1] == 5) {
         console.log("full");
         // next line if enter
-        if (key == 13 && letterPosition[0] != 6) {
+        if (key == 13 && letterPosition[0] != 6 && !animating) {
           if (wordCheck()) {
             continueButton.text = "Game is in session.";
             if (letterPosition[0] == 6) {
