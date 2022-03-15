@@ -249,14 +249,13 @@ function letter(e) {
         if (key == 13 && letterPosition[0] != 6) {
           if (wordCheck()) {
             continueButton.text = "Game is in session.";
-            letterPosition[0]++;
             if (letterPosition[0] == 6) {
               time = 0;
               showMessage();
             }
+            letterPosition[0]++;
             letterPosition[1] = 0;
             if (check()) {
-              letterPosition[0] = 6;
               time += moreTime;
               showMessage();
               scoreCalc();
