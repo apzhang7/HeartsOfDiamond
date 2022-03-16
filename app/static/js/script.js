@@ -405,6 +405,7 @@ var endGame = () => {
   if (time > 0) {
     time = 0;
   }
+  console.log("total score is" + (totalScore + (currentLetters *100)));
 }
 
 var btn = document.getElementById("giveUp");
