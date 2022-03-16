@@ -409,5 +409,4 @@ var endGame = () => {
 }
 
 var btn = document.getElementById("giveUp");
-btn.innerHTML = "End Game?";
 btn.addEventListener("click",endGame);

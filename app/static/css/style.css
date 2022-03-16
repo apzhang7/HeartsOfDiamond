@@ -30,7 +30,7 @@ body {
   background: #a8dadc;
   width: 118px;
   height: 56px;
-  color: #f55662;
+  color: #e63946;
   position:relative;
   left:-124px;
   top:-65px;
@@ -54,6 +54,16 @@ body {
   border-style: solid;
   background: #e63946;
   margin-bottom: 50px;
+}
+
+#info {
+  margin-top: 7px;
+  position: absolute;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  border-radius: 40px;
+  border: none;
 }
 
 .submitScore {
