@@ -31,4 +31,19 @@ Time Spent: ?? -->
       wordle = wordle.toUpperCase();
   </script>
 </nav>
+<div id = "submit" class = "submitScore hide">
+  <h2> Do you want to submit your score? </h2>
+  <div id="inputs">
+    <label for="user" class="h4"> Username: </label>
+    <input type="text" id="user" name="user">
+  </div>
+  <div id="inputs">
+    <a href = "/leaderboard">
+      <input type="submit" value="Submit" name="user">
+    <a>
+    <a href = "/">
+      <input type="button" value="No, play again!">
+    </a>
+  </div>
+</div>
 {% endblock %}
