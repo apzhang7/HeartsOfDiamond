@@ -56,7 +56,7 @@ body {
   margin-bottom: 50px;
 }
 
-#info {
+#infoButton {
   margin-top: 7px;
   position: absolute;
   right: 15px;
@@ -64,6 +64,18 @@ body {
   height: 30px;
   border-radius: 40px;
   border: none;
+}
+
+#infoText {
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 15px;
+  width: 100px;
+  height: 50px;
+  background-color: #a8dadc;
+  position: absolute;
+  right: 15px;
+  top: 100px;
 }
 
 .submitScore {
@@ -92,7 +104,7 @@ body {
 }
 
 .hide {
-  opacity: 0;
+  display: none ;
 }
 
 input {

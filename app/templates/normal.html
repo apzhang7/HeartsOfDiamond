@@ -22,7 +22,7 @@ Time Spent: ?? -->
     <a class="nav-link" href="/rude">Rude</a>
     <a class="nav-link" href="/zen">Zen</a>
     <a class="nav-link" href="/leaderboard">Leaderboard</a>
-    <button id="info">?</button>
+    <button id="infoButton">?</button>
   </nav>
   <script>
       var wordle = "{{ wordle }}";
@@ -32,6 +32,7 @@ Time Spent: ?? -->
       wordle = wordle.toUpperCase();
   </script>
 </nav>
+<p id="infoText">normal rules</p>
 <div id = "submit" class = "submitScore hide">
   <h2> Do you want to submit your score? </h2>
   <form action = "leaderboard" method = "POST">

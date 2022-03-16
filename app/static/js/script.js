@@ -317,7 +317,7 @@ var gameTimer = () => {
           timeOn = false;
           showMessage();
           setTimeout(function() {
-            document.getElementById('submit').style.opacity = 1;
+            document.getElementById('submit').style.display = "block";
           }, 1500);
           scoreCalc();
         } else if (correctLetterCount == 5) {
@@ -408,5 +408,20 @@ var endGame = () => {
   console.log("total score is" + (totalScore + (currentLetters *100)));
 }
 
+var displayInfo = () => {
+  if (infoText.className == "") {
+    infoText.className = "hide" ;
+  }
+  else {
+    infoText.className = "" ;
+  }
+  console.log(infoText.className);
+}
+
 var btn = document.getElementById("giveUp");
 btn.addEventListener("click",endGame);
+
+var infoText = document.getElementById("infoText");
+
+var infoButton = document.getElementById("infoButton");
+infoButton.addEventListener("click",displayInfo);
