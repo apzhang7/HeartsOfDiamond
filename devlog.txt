@@ -114,3 +114,6 @@ angelaZ -- 2022-03-14 01:18
 
 jonathanW -- 2022-3-16 1:50
 - Started working on creating a button to submit scores to python and sqlite3.
+- More CSS
+- Used JS to make the button appear after game ends
+- Updated HTML to add forms
