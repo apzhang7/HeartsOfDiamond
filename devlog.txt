@@ -111,3 +111,6 @@ jesseX -- 2022-03-13 20:14
 angelaZ -- 2022-03-14 01:18
 - Created hidden paragraph in html to save the finalScoring of the player from JS
 - EndGame button that sets time to zero (W.I.P)
+
+jonathanW -- 2022-3-16 1:50
+- Started working on creating a button to submit scores to python and sqlite3.
