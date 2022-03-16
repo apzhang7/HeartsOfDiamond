@@ -4,7 +4,7 @@
 # 2022-03-03
 # Time Spent: ??
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import sqlite3
 import random
 import html
@@ -13,7 +13,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def normalWordle():
-    return render_template("normal.html", wordle = randomWord(), defaultTime = 180, words = wordBank(), addTime = 60, mode = "/")
+    #userInput = request.form['user']
+    return render_template("normal.html", wordle = randomWord(), defaultTime = 1, words = wordBank(), addTime = 60, mode = "/")
 
 @app.route("/hard-wordle")
 def hardWordle():
