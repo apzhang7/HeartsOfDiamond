@@ -11,6 +11,20 @@ import html
 
 app = Flask(__name__)
 
+MAIN_DB = "leaderboard.db"
+
+db = sqlite3.connect(MAIN_DB)
+c = db.cursor()
+
+c.execute("""
+    CREATE TABLE IF NOT EXISTS LEADERBOARD (
+        USER    TEXT,
+        SCORE   INTEGER
+    );""")
+
+db.commit()
+db.close()
+
 @app.route("/")
 def normalWordle():
     #userInput = request.form['user']
@@ -28,8 +42,17 @@ def rude():
 def zen():
     return render_template("zen.html", wordle = randomWord(), defaultTime = 2**53-1, words = wordBank(), addTime = 0, mode = "/zen")
 
-@app.route("/leaderboard")
+@app.route("/leaderboard", methods = ['GET', 'POST'])
 def leaderboard():
+    if request.method == "POST":
+        if 'user' in request.form:
+            db = sqlite3.connect(MAIN_DB)
+            c = db.cursor()
+            c.execute("""
+                INSERT INTO LEADERBOARD (USER, SCORE) VALUES (?,?)
+                """, ((request.form['user']), 1000))
+            db.commit()
+            db.close()
     return render_template("leaderboard.html")
 
 def randomWord():
