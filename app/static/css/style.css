@@ -56,6 +56,41 @@ body {
   margin-bottom: 50px;
 }
 
+.submitScore {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 400px;
+  height: 180px;
+  background: #a8dadc;
+  z-index: 1;
+  color: white;
+  border-style: solid;
+  border-color: #f55662;
+}
+
+#inputs {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.hide {
+  opacity: 0;
+}
+
+input {
+  padding: 5px;
+  margin: 10px;
+  border: 0;
+}
+
 .titleName {
   margin-top: 5px;
   display: flex;
@@ -71,6 +106,14 @@ h1 {
   text-align: center;
   margin-bottom: 0;
   font-size: 50px;
+}
+
+h2 {
+  color: white;
+
+  text-align: center;
+  margin: 10px;
+  font-size: 25px;
 }
 
 .wordleNav {
