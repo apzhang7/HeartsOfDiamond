@@ -316,6 +316,9 @@ var gameTimer = () => {
           time = newTime;
           timeOn = false;
           showMessage();
+          setTimeout(function() {
+            document.getElementById('submit').style.opacity = 1;
+          }, 1500);
           scoreCalc();
         } else if (correctLetterCount == 5) {
           time = newTime;
