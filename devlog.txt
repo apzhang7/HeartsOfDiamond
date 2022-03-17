@@ -128,3 +128,6 @@ jonathanW -- 2022-03-16 23:11
 - Added JS code to handle leaderboard
 - Leaderboard board now can show data correctly
 - Normal mode now has working leaderboard
+
+jonathanW -- 2022-03-17 12:06
+- Bug fix of the game not ending when you can't input anymore words.
