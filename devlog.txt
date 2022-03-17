@@ -147,3 +147,7 @@ jonathanW -- 2022-03-16 23:11
 jesseX -- 2022-03-17 09:16
 - Changed back timer to 180 seconds for normal mode
 - Added correct text for rules of the game
+
+jonathanW -- 2022-03-17 12:06
+- Bug fix of the game not ending when you can't input anymore words.
+- Made the "?" show info when clicked first and not by default.
