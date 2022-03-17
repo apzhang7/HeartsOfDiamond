@@ -27,7 +27,7 @@ db.close()
 @app.route("/")
 def normalWordle():
     #userInput = request.form['user']
-    return render_template("normal.html", wordle = randomWord(), defaultTime = 1, words = wordBank(), addTime = 60, mode = "/")
+    return render_template("normal.html", wordle = randomWord(), defaultTime = 180, words = wordBank(), addTime = 60, mode = "/")
 
 @app.route("/hard-wordle")
 def hardWordle():
