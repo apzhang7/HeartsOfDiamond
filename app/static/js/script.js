@@ -307,7 +307,7 @@ var gameTimer = () => {
         ctx.fillRect(331,71,118,58);
         ctx.fillStyle = '#e63946';
         ctx.fillText("Time Left: " + newTime + "s", 335, 105);
-        if (newTime <= 0) {
+        if (newTime <= 0 || letterPosition[0] == 6) {
           ctx.clearRect(331,71,118,58);
           ctx.font = '20px Pragati Narrow';
           ctx.fillStyle = '#a8dadc';
@@ -375,7 +375,7 @@ function showMessage() {
         window.location.replace(gamemode);
       }
     }, 1000);
-  } else if (correctLetterCount < 5 && time <= 0) {
+  } else if (correctLetterCount < 5 && (time <= 0 || letterPosition[0] == 6)) {
     ctx.strokeStyle = 'black';
     ctx.strokeRect(5,395,c.width-10,60);
     ctx.strokeRect(5,395,c.width-10,60);
