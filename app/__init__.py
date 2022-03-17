@@ -4,7 +4,7 @@
 # 2022-03-03
 # Time Spent: ??
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import sqlite3
 import random
 import html
@@ -21,7 +21,6 @@ c.execute("""
         USER    TEXT,
         SCORE   INTEGER
     );""")
-
 db.commit()
 db.close()
 
@@ -50,10 +49,18 @@ def leaderboard():
             c = db.cursor()
             c.execute("""
                 INSERT INTO LEADERBOARD (USER, SCORE) VALUES (?,?)
-                """, ((request.form['user']), 1000))
+                """, ((request.form['user']), request.form['score']))
             db.commit()
             db.close()
-    return render_template("leaderboard.html")
+            return redirect("/leaderboard")
+    db = sqlite3.connect(MAIN_DB)
+    c = db.cursor()
+    c.execute("""
+        SELECT * FROM LEADERBOARD ORDER BY SCORE DESC
+        """,)
+    data = c.fetchall()
+    db.close()
+    return render_template("leaderboard.html", userScore = data)
 
 def randomWord():
     with open('static/words.txt') as file:
