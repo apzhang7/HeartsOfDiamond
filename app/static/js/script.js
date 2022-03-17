@@ -423,11 +423,11 @@ var endGame = () => {
 }
 
 var displayInfo = () => {
-  if (infoText.className == "") {
-    infoText.className = "hide" ;
+  if (infoText.className == "hide") {
+    infoText.className = "" ;
   }
   else {
-    infoText.className = "" ;
+    infoText.className = "hide";
   }
   console.log(infoText.className);
 }
