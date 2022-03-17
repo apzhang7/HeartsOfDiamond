@@ -120,4 +120,11 @@ jonathanW -- 2022-03-16 1:50
 
 jonathanW -- 2022-03-16 9:18
 - Updated HTMl to include POST in form
-- Updated python file to create and commit DB 
+- Updated python file to create and commit DB
+
+jonathanW -- 2022-03-16 23:11
+- Python file now handles leaderboard functionality
+- More CSS styling
+- Added JS code to handle leaderboard
+- Leaderboard board now can show data correctly
+- Normal mode now has working leaderboard
