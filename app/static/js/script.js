@@ -25,6 +25,8 @@ var frame = 0 ;
 var column = 0 ;
 var fillColors ;
 var animating = false ;
+var addData = true;
+
 // draws the initial grid to play on
 var drawGrid = () => {
   for(var k = 0 ; k<2; k++) {
@@ -63,7 +65,7 @@ var drawGrid = () => {
     ctx.fillStyle = '#a8dadc';
     ctx.fillRect(331,71,118,58);
     ctx.fillStyle = '#e63946';
-    ctx.fillText("Time Left: Inf", 335, 105);
+    ctx.fillText("Time Left: ∞", 335, 105);
   } else {
     ctx.fillText("Time Left: " + time + "s", 335, 105);
   }
@@ -293,7 +295,7 @@ var gameTimer = () => {
     ctx.fillStyle = '#a8dadc';
     ctx.fillRect(331,71,118,58);
     ctx.fillStyle = '#e63946';
-    ctx.fillText("Time Left: inf", 335, 105);
+    ctx.fillText("Time Left: 	∞", 335, 105);
   } else {
     var startTimer = Date.now();
     var id = setInterval(function() {
@@ -317,6 +319,9 @@ var gameTimer = () => {
           timeOn = false;
           showMessage();
           setTimeout(function() {
+            var randomUser = generateUsername();
+            document.getElementById('user').defaultValue = randomUser;
+            document.getElementById('score').defaultValue = totalScore;
             document.getElementById('submit').style.display = "block";
           }, 1500);
           scoreCalc();
@@ -333,6 +338,15 @@ var gameTimer = () => {
         }
       }, 1000); // update about every second
     }
+}
+
+// generates a random username for the user if none is provided
+var generateUsername = () => {
+  var word1 = wordBank[Math.floor(Math.random() * wordBank.length)];
+  var word2 = wordBank[Math.floor(Math.random() * wordBank.length)];
+  var num = Math.floor(Math.random() * wordBank.length);
+  var user = word1 + word2 + num;
+  return user;
 }
 
 // displays various messages
