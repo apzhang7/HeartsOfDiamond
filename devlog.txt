@@ -151,3 +151,6 @@ jesseX -- 2022-03-17 09:16
 jonathanW -- 2022-03-17 12:06
 - Bug fix of the game not ending when you can't input anymore words.
 - Made the "?" show info when clicked first and not by default.
+
+jesseX -- 2022-03-17 13:58
+- Revised rules in text for normal mode
