@@ -74,10 +74,10 @@ angelaZ -- 2022-03-11 00:43
 - Updated DD with more accurate site maps and added details for new features
 - Added method for checking if the letters in the guess matched the wordle answer
 
-jesseX -- 2022-03-11 9:00
+jesseX -- 2022-03-11 09:00
 - Moved code for checking guess/wordle from python to js
 
-jonathanW -- 2022-03-11 9:19
+jonathanW -- 2022-03-11 09:19
 - Changed the list of possible words to 2314 from 13k
 - Changed python checking system to JS
 
@@ -112,15 +112,30 @@ angelaZ -- 2022-03-14 01:18
 - Created hidden paragraph in html to save the finalScoring of the player from JS
 - EndGame button that sets time to zero (W.I.P)
 
-jonathanW -- 2022-03-16 1:50
+jesseX -- 2022-03-14 09:41
+- Completed end game button, sets timer to zero seconds
+- Moved end game button to appropriate location
+
+jesseX -- 2022-03-15 09:51
+- Resolved bug that removed time from timer after guessing wordle correctly on sixth try
+- Added boolean to prevent words from being guessed too fast to prevent weird unveiling animation
+
+jonathanW -- 2022-03-16 01:50
 - Started working on creating a button to submit scores to python and sqlite3.
 - More CSS
 - Used JS to make the button appear after game ends
 - Updated HTML to add forms
 
-jonathanW -- 2022-03-16 9:18
+jesseX -- 2022-03-16 09:05
+- Recentered canvas after it was shifted by adding a button
+
+jonathanW -- 2022-03-16 09:18
 - Updated HTMl to include POST in form
 - Updated python file to create and commit DB
+
+jesseX -- 2022-03-16 13:40
+- Added button for displaying info/rules of the game
+- Added css for button and js method to toggle display for text of the rules
 
 jonathanW -- 2022-03-16 23:11
 - Python file now handles leaderboard functionality
@@ -128,3 +143,7 @@ jonathanW -- 2022-03-16 23:11
 - Added JS code to handle leaderboard
 - Leaderboard board now can show data correctly
 - Normal mode now has working leaderboard
+
+jesseX -- 2022-03-17 09:16
+- Changed back timer to 180 seconds for normal mode
+- Added correct text for rules of the game
