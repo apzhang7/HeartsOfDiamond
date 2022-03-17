@@ -27,6 +27,7 @@ body {
 }
 
 #giveUp {
+  flex-shrink:0;
   background: #a8dadc;
   width: 118px;
   height: 56px;
@@ -101,6 +102,26 @@ body {
   justify-content: center;
   align-items: center;
   display: flex;
+}
+
+.leaderboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  color: #1d3557;
+  width: 455px;
+  background: #a8dadc;
+  padding: 5px;
+}
+
+th {
+  width: 50vw;
+  font-size: 20px;
+  border-bottom: solid;
 }
 
 .hide {
