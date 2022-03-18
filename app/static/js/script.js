@@ -289,24 +289,25 @@ console.log(wordle);
 
 // a timer to time the game
 var gameTimer = () => {
-  if (time > Math.pow(10,10)) {
-    ctx.clearRect(331,71,118,58);
-    ctx.font = '20px Pragati Narrow';
-    ctx.fillStyle = '#a8dadc';
-    ctx.fillRect(331,71,118,58);
-    ctx.fillStyle = '#e63946';
-    ctx.fillText("Time Left: 	∞", 335, 105);
-  } else {
     var startTimer = Date.now();
     var id = setInterval(function() {
         var timeElapsed = Date.now() - startTimer; // time passed
         var newTime = time - (Math.floor(timeElapsed/1000)); // in seconds
-        ctx.clearRect(331,71,118,58);
-        ctx.font = '20px Pragati Narrow';
-        ctx.fillStyle = '#a8dadc';
-        ctx.fillRect(331,71,118,58);
-        ctx.fillStyle = '#e63946';
-        ctx.fillText("Time Left: " + newTime + "s", 335, 105);
+        if (time > Math.pow(10,10)) {
+          ctx.clearRect(331,71,118,58);
+          ctx.font = '20px Pragati Narrow';
+          ctx.fillStyle = '#a8dadc';
+          ctx.fillRect(331,71,118,58);
+          ctx.fillStyle = '#e63946';
+          ctx.fillText("Time Left: ∞", 335, 105);
+        } else {
+          ctx.clearRect(331,71,118,58);
+          ctx.font = '20px Pragati Narrow';
+          ctx.fillStyle = '#a8dadc';
+          ctx.fillRect(331,71,118,58);
+          ctx.fillStyle = '#e63946';
+          ctx.fillText("Time Left: " + newTime + "s", 335, 105);
+        }
         if (newTime <= 0 || letterPosition[0] == 6) {
           ctx.clearRect(331,71,118,58);
           ctx.font = '20px Pragati Narrow';
@@ -337,7 +338,6 @@ var gameTimer = () => {
           continueButton.text = "Game is in session.";
         }
       }, 1000); // update about every second
-    }
 }
 
 // generates a random username for the user if none is provided
