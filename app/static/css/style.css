@@ -14,6 +14,11 @@ Light Blue #a8dadc
 Blue #457b9d
 Dark Blue #1d3557 */
 
+:root {
+  --primary: #a8dadc ;
+  --secondary: #e63946 ;
+}
+
 body {
   background: #457b9d;
   overflow: hidden;
@@ -28,16 +33,18 @@ body {
 
 #giveUp {
   flex-shrink:0;
-  background: #a8dadc;
-  width: 118px;
-  height: 56px;
-  color: #e63946;
+  background: var(--primary);
+  width: 122px;
+  height: 62px;
+  color: var(--secondary);
   position:relative;
-  left:-124px;
+  left:-126px;
   top:-65px;
   text-align: left;
   font-size: 20px;
-  border: none;
+  border-style: solid;
+  border-color:black;
+  border-width:2px;
 
 }
 #continue {
@@ -53,7 +60,7 @@ body {
   border-color: white;
   border-width: 2px;
   border-style: solid;
-  background: #e63946;
+  background: var(--secondary);
   margin-bottom: 50px;
 }
 
@@ -73,7 +80,7 @@ body {
   font-size: 20px;
   padding: 15px;
   width: 400px;
-  background-color: #a8dadc;
+  background-color: var(--primary);
   position: absolute;
   right: 37px;
   top: 87px;
@@ -126,7 +133,7 @@ body {
   margin-bottom: auto;
   width: 400px;
   height: 180px;
-  background: #a8dadc;
+  background: var(--primary);
   z-index: 1;
   color: white;
   border-style: solid;
@@ -149,7 +156,7 @@ body {
   margin-right: auto;
   color: #1d3557;
   width: 455px;
-  background: #a8dadc;
+  background: var(--primary);
   padding: 5px;
 }
 
@@ -195,7 +202,7 @@ h2 {
 }
 
 .wordleNav {
-  background: #a8dadc;
+  background: var(--primary);
   overflow: hidden;
   padding: 2px;
   box-shadow: 0px 3px 5px #1d3557;
@@ -215,7 +222,7 @@ h2 {
 }
 
 #active {
-  background: #e63946;
+  background: var(--secondary);
   color: #f1faee;
 }
 

@@ -19,13 +19,24 @@ var guessedWords = [];
 var correctLetterCount = 0;
 var totalScore = 0;
 var timeOn = false;
-var firstRound;
 var lettersLeft = wordle ;
 var frame = 0 ;
 var column = 0 ;
 var fillColors ;
 var animating = false ;
 var addData = true;
+
+var changeToDefault = () => {
+  localStorage.setItem("color",0);
+  document.documentElement.style.setProperty("--primary", "#a8dadc");
+  document.documentElement.style.setProperty("--secondary", "#e63946");
+}
+
+var changeToAlternate = () => {
+  localStorage.setItem("color",1);
+  document.documentElement.style.setProperty("--primary", "#f5bfea");
+  document.documentElement.style.setProperty("--secondary", "#b390e0");
+}
 
 // draws the initial grid to play on
 var drawGrid = () => {
@@ -38,15 +49,19 @@ var drawGrid = () => {
         ctx.fillRect(6+(i*65),6+(j*65),58,58);
       }
     }
+    // score/time boxes
     ctx.strokeRect(330,5,120,60);
     ctx.fillStyle = '#a8dadc';
     ctx.fillRect(331,6,118,58);
     ctx.strokeRect(330,70,120,60);
     ctx.fillStyle = '#a8dadc';
     ctx.fillRect(331,71,118,58);
-    ctx.strokeRect(330,135,120,60);
-    ctx.fillStyle = '#a8dadc';
-    ctx.fillRect(331,136,118,58);
+  }
+  if (localStorage.getItem("color") == 0) {
+    changeToDefault();
+  }
+  if (localStorage.getItem("color") == 1) {
+    changeToAlternate();
   }
   if (localStorage.getItem("FirstRound?") == "false") {
     var concurrentScore = parseInt(localStorage.getItem("TotalScore"));
@@ -471,5 +486,11 @@ var whichRude = () => {
     document.getElementById('fourRight').play();
   }
 }
+
+var colorButtons = colorDiv.getElementsByTagName('button');
+
+colorButtons[0].addEventListener('click',changeToDefault);
+colorButtons[1].addEventListener('click',changeToAlternate);
+
 
 whichRude();
