@@ -18,12 +18,21 @@ Time Spent: ?? -->
       <a class="nav-link" id="active" href="/zen">Zen</a>
       <a class="nav-link" href="/leaderboard">Leaderboard</a>
   </nav>
+  
+    <audio autoplay loop id="music">
+      <source src="../static/audio/zenMusic.mp3" type="audio/mpeg">
+    </audio>
+
   <script>
       var wordle = "{{ wordle }}";
       var time = {{ defaultTime }};
       var moreTime = {{ addTime }};
       var gamemode = "{{ mode }}";
       wordle = wordle.toUpperCase();
+
+      var rudeCheck = () => {
+        whichRude();
+      }
   </script>
 </nav>
 {% endblock %}

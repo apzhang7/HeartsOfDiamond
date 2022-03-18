@@ -24,12 +24,19 @@ Time Spent: ?? -->
     <a class="nav-link" href="/leaderboard">Leaderboard</a>
     <button id="infoButton">?</button>
   </nav>
+
+  <audio autoplay loop id="music">
+    <source src="../static/audio/normalMusic.mp3" type="audio/mpeg">
+  </audio>
+
   <script>
       var wordle = "{{ wordle }}";
       var time = {{ defaultTime }};
       var moreTime = {{ addTime }};
       var gamemode = "{{ mode }}";
       wordle = wordle.toUpperCase();
+      var music = document.getElementById("music");
+      music.volume = 0.1;
   </script>
 </nav>
 <p class="hide" id="infoText">Guess as many <b>WORDLE</b>s as you can in 180 seconds. <br>

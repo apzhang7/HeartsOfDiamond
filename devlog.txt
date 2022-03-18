@@ -110,7 +110,7 @@ jesseX -- 2022-03-13 20:14
 
 angelaZ -- 2022-03-14 01:18
 - Created hidden paragraph in html to save the finalScoring of the player from JS
-- EndGame button that sets time to zero (W.I.P)
+- EndGame button that sets time to zero (W.I.P.)
 
 jesseX -- 2022-03-14 09:41
 - Completed end game button, sets timer to zero seconds
@@ -154,3 +154,9 @@ jonathanW -- 2022-03-17 12:06
 
 jesseX -- 2022-03-17 13:58
 - Revised rules in text for normal mode
+
+angelaZ -- 2022-03-18 02:30
+- Audio folder created inside static
+- Added autoplay looping background music with adjustable volume to every mode but rude
+- Added 4 "insults" for rude
+- Rude sounds will be triggered based off the last correctLetterCount (W.I.P.)

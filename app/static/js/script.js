@@ -419,7 +419,7 @@ var endGame = () => {
   if (time > 0) {
     time = 0;
   }
-  console.log("total score is" + (totalScore + (currentLetters *100)));
+  console.log("total score is " + (totalScore + (correctLetterCount * 100)));
 }
 
 var displayInfo = () => {
@@ -434,8 +434,27 @@ var displayInfo = () => {
 
 var btn = document.getElementById("giveUp");
 btn.addEventListener("click",endGame);
+btn.addEventListener("click",whichRude);
+
 
 var infoText = document.getElementById("infoText");
 
 var infoButton = document.getElementById("infoButton");
 infoButton.addEventListener("click",displayInfo);
+
+var whichRude = () => {
+  if (correctLetterCount == 1) {
+    document.getElementById('oneRight').play();
+  }
+  else if (correctLetterCount == 2) {
+    document.getElementById('twoRight').play();
+  }
+  else if (correctLetterCount == 3) {
+    document.getElementById('threeRight').play();
+  }
+  else {
+    document.getElementById('fourRight').play();
+  }
+}
+
+whichRude();
