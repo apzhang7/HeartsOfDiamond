@@ -432,6 +432,16 @@ var displayInfo = () => {
   console.log(infoText.className);
 }
 
+var colorDisplay = () => {
+  if (colorDiv.className == "hide") {
+    colorDiv.className = "" ;
+  }
+  else {
+    colorDiv.className = "hide";
+  }
+  console.log(colorDiv.className);
+}
+
 var btn = document.getElementById("giveUp");
 btn.addEventListener("click",endGame);
 btn.addEventListener("click",whichRude);
@@ -441,6 +451,11 @@ var infoText = document.getElementById("infoText");
 
 var infoButton = document.getElementById("infoButton");
 infoButton.addEventListener("click",displayInfo);
+
+var colorDiv = document.getElementById("colorDiv");
+
+var colorButton = document.getElementById("colorButton");
+colorButton.addEventListener("click",colorDisplay);
 
 var whichRude = () => {
   if (correctLetterCount == 1) {

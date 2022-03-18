@@ -17,6 +17,7 @@ Time Spent: ?? -->
 </style>
 <nav class="wordleNav">
   <nav class="nav nav-pills nav-justified justify-content-center">
+    <button id="colorButton"></button>
     <a class="nav-link" id="active" style=""href="/">Normal</a>
     <a class="nav-link" href="/hard-wordle">Hard</a>
     <a class="nav-link" href="/rude">Rude</a>
@@ -39,6 +40,10 @@ Time Spent: ?? -->
       music.volume = 0.1;
   </script>
 </nav>
+<div class="hide" id="colorDiv">
+  <button class="colorText">default</button> <br style="margin-top: 30px;">
+  <button class="colorText">alt</button> <br style="margin-top: 30px;">
+</div>
 <p class="hide" id="infoText">Guess as many <b>WORDLE</b>s as you can in 180 seconds. <br>
   The player will gain 60 seconds and 500 points for correctly guessing the word within
   six tries, and an extra 200 points for guessing the word within three tries. <br>
