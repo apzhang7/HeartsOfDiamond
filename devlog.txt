@@ -160,3 +160,6 @@ angelaZ -- 2022-03-18 02:30
 - Added autoplay looping background music with adjustable volume to every mode but rude
 - Added 4 "insults" for rude
 - Rude sounds will be triggered based off the last correctLetterCount (W.I.P.)
+
+jonathanW -- 2022-03-18 19:00
+- Remove formatting of extra text in the leaderboard page
