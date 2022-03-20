@@ -250,7 +250,7 @@ var wordCheck = () => {
     fillColors = ['black','black','black','black','black'] ;
     if (gamemode === "/hard-wordle") {
       for (var i = 0; i < 5; i++) {
-        if (lockedKeys.includes(guess.charAt(i))) {
+        if (lockedKeys.includes(guess.charAt(i)) && !wordle.includes(guess.charAt(i))) {
           penaltyTime += 10;
         }
       }
