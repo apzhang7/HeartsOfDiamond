@@ -33,9 +33,9 @@ def normalWordle():
 def hardWordle():
     return render_template("hard.html", wordle = randomWord(), defaultTime = 90, words = wordBank(), addTime = 30, mode = "/hard-wordle")
 
-@app.route("/rude")
+@app.route("/chaos")
 def rude():
-    return render_template("rude.html", wordle = randomWord(), defaultTime = 180, words = wordBank(), addTime = 60, mode = "/rude")
+    return render_template("chaos.html", wordle = randomWord(), defaultTime = 180, words = wordBank(), addTime = 60, mode = "/chaos")
 
 @app.route("/zen")
 def zen():
@@ -60,7 +60,7 @@ def leaderboard():
         """,)
     data = c.fetchall()
     db.close()
-    return render_template("leaderboard.html", userScore = data)
+    return render_template("leaderboard.html", userScore = data, wordle = randomWord(), defaultTime = 2**53-1, words = wordBank(), addTime = 0, mode = "/leaderboard")
 
 def randomWord():
     with open('static/words.txt') as file:
