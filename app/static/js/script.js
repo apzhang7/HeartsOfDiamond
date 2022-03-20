@@ -13,7 +13,7 @@ var requestID = false;  //init global var for use with animation frames
 var letterPosition = [0,0];
 var keyboard = ['Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M'];
 var lockedKeys = [];
-var kbUsed = '#a8dadc';
+var kbUsed = '#e3e3e3';
 var currentLetters = "";
 var guessedWords = [];
 var correctLetterCount = 0;
@@ -97,10 +97,10 @@ var drawGrid = () => {
     }
     // score/time boxes
     ctx.strokeRect(330,5,120,60);
-    ctx.fillStyle = '#a8dadc';
+    ctx.fillStyle = '#e3e3e3';
     ctx.fillRect(331,6,118,58);
     ctx.strokeRect(330,70,120,60);
-    ctx.fillStyle = '#a8dadc';
+    ctx.fillStyle = '#e3e3e3';
     ctx.fillRect(331,71,118,58);
   }
   if (localStorage.getItem("color") == 0) {
@@ -126,13 +126,13 @@ var drawGrid = () => {
     localStorage.setItem("color",colorScheme);
   }
   ctx.font = '20px Pragati Narrow';
-  ctx.fillStyle = '#e63946';
+  ctx.fillStyle = '#3b3b3b';
   if (time > Math.pow(10,10)) {
     ctx.clearRect(331,71,118,58);
     ctx.font = '20px Pragati Narrow';
-    ctx.fillStyle = '#a8dadc';
+    ctx.fillStyle = '#e3e3e3';
     ctx.fillRect(331,71,118,58);
-    ctx.fillStyle = '#e63946';
+    ctx.fillStyle = '#3b3b3b';
     ctx.fillText("Time Left: ∞", 335, 105);
   } else {
     ctx.fillText("Time Left: " + time + "s", 335, 105);
@@ -248,9 +248,9 @@ function scoreCalc () {
   }
   ctx.clearRect(331,6,118,58);
   ctx.font = '20px Pragati Narrow';
-  ctx.fillStyle = '#a8dadc';
+  ctx.fillStyle = '#e3e3e3';
   ctx.fillRect(331,6,118,58);
-  ctx.fillStyle = '#e63946';
+  ctx.fillStyle = '#3b3b3b';
   ctx.fillText("Score: " + totalScore, 335, 40);
 }
 
@@ -293,7 +293,7 @@ var wordCheck = () => {
     return true;
   } else {
     showMessage();
-    kbUsed = '#a8dadc';
+    kbUsed = '#e3e3e3';
     return false;
   }
 }
@@ -385,24 +385,24 @@ var gameTimer = () => {
         if (time > Math.pow(10,10)) {
           ctx.clearRect(331,71,118,58);
           ctx.font = '20px Pragati Narrow';
-          ctx.fillStyle = '#a8dadc';
+          ctx.fillStyle = '#e3e3e3';
           ctx.fillRect(331,71,118,58);
-          ctx.fillStyle = '#e63946';
+          ctx.fillStyle = '#3b3b3b';
           ctx.fillText("Time Left: ∞", 335, 105);
         } else {
           ctx.clearRect(331,71,118,58);
           ctx.font = '20px Pragati Narrow';
-          ctx.fillStyle = '#a8dadc';
+          ctx.fillStyle = '#e3e3e3';
           ctx.fillRect(331,71,118,58);
-          ctx.fillStyle = '#e63946';
+          ctx.fillStyle = '#3b3b3b';
           ctx.fillText("Time Left: " + newTime + "s", 335, 105);
         }
         if (newTime <= 0 || letterPosition[0] == 6) {
           ctx.clearRect(331,71,118,58);
           ctx.font = '20px Pragati Narrow';
-          ctx.fillStyle = '#a8dadc';
+          ctx.fillStyle = '#e3e3e3';
           ctx.fillRect(331,71,118,58);
-          ctx.fillStyle = '#e63946';
+          ctx.fillStyle = '#3b3b3b';
           ctx.fillText("Time Left: N/A", 335, 105);
           clearInterval(id);
           time = newTime;
@@ -420,9 +420,9 @@ var gameTimer = () => {
           time = newTime;
           clearInterval(id);
           ctx.font = '20px Pragati Narrow';
-          ctx.fillStyle = '#a8dadc';
+          ctx.fillStyle = '#e3e3e3';
           ctx.fillRect(331,71,118,58);
-          ctx.fillStyle = '#e63946';
+          ctx.fillStyle = '#3b3b3b';
           ctx.fillText("Time Left: " + time + "s", 335, 105);
         } else {
           continueButton.text = "Game is in session.";
@@ -457,7 +457,7 @@ function showMessage() {
         clearInterval(idInterval);
         ctx.clearRect(4,394,c.width,62);
         continueButton.style.color = "#1d3557";
-        continueButton.style.background = '#a8dadc';
+        continueButton.style.background = '#e3e3e3';
         continueButton.text = "Loading word...";
         localStorage.setItem("TotalScore", totalScore);
         localStorage.setItem("FirstRound?", false);
@@ -477,7 +477,7 @@ function showMessage() {
     continueButton.href = gamemode;
     continueButton.text = "Try Again?"
     continueButton.style.color = "#1d3557";
-    continueButton.style.background = '#a8dadc';
+    continueButton.style.background = '#e3e3e3';
   } else {
     ctx.strokeStyle = 'black';
     ctx.strokeRect(5,395,c.width-10,60);
