@@ -206,7 +206,7 @@ input {
 
 h1 {
   color: var(--textColor);
-  text-shadow: 0px 0px 15px var(--primary);
+  text-shadow: 0px 0px 15px var(--third);
   text-align: center;
   margin-bottom: 0;
   font-size: 50px;
