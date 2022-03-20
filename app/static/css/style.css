@@ -156,7 +156,7 @@ body {
   z-index: 1;
   color: var(--textColor);
   border-style: solid;
-  border-color: #f55662;
+  border-color: var(--fifth);
 }
 
 #inputs {
