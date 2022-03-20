@@ -17,10 +17,14 @@ Dark Blue #1d3557 */
 :root {
   --primary: #a8dadc ;
   --secondary: #e63946 ;
+  --third: #1d3557;
+  --fourth: #457b9d;
+  --fifth: #f55662;
+  --textColor: #f1faee;
 }
 
 body {
-  background: #457b9d;
+  background: var(--fourth);
   overflow: hidden;
   font-family: 'Pragati Narrow', sans-serif;
 }
@@ -33,10 +37,10 @@ body {
 
 #giveUp {
   flex-shrink:0;
-  background: var(--primary);
+  background: #a8dadc;
   width: 122px;
   height: 62px;
-  color: var(--secondary);
+  color: #e63946;
   position:relative;
   left:-126px;
   top:-65px;
@@ -45,19 +49,26 @@ body {
   border-style: solid;
   border-color:black;
   border-width:2px;
-
 }
+
+#giveUp:hover {
+  cursor: pointer;
+  background: #f55662;
+  color: white;
+  transition: 0.4s ease all;
+}
+
 #continue {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  color: white;
-  width: 446px;
+  color: var(--textColor);
+  width: 448px;
   height: 60px;
   font-size: 25px;
-  border-color: white;
+  border-color: var(--textColor);
   border-width: 2px;
   border-style: solid;
   background: var(--secondary);
@@ -80,7 +91,7 @@ body {
   font-size: 20px;
   padding: 15px;
   width: 400px;
-  background-color: var(--primary);
+  background-color: #e9ecef;
   position: absolute;
   right: 37px;
   top: 87px;
@@ -106,15 +117,13 @@ body {
 #colorDiv {
   position: absolute;
   left: 17px;
-  top: 77px;
+  top: 65px;
 }
 
 .colorText {
-  width: 150px;
-  height: 56px;
-  text-align: center;
-  font-size: 25px;
-  position: absolute;
+  width: 100px;
+  height: 33px;
+  font-size: 20px;
   border-radius: 8px;
   border-style: solid;
   border-color: black;
@@ -135,7 +144,7 @@ body {
   height: 180px;
   background: var(--primary);
   z-index: 1;
-  color: white;
+  color: var(--textColor);
   border-style: solid;
   border-color: #f55662;
 }
@@ -154,7 +163,7 @@ body {
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  color: #1d3557;
+  color: var(--third);
   width: 455px;
   background: var(--primary);
   padding: 5px;
@@ -186,7 +195,7 @@ input {
 }
 
 h1 {
-  color: white;
+  color: var(--textColor);
   text-shadow: 0px 0px 10px black;
   text-align: center;
   margin-bottom: 0;
@@ -194,8 +203,7 @@ h1 {
 }
 
 h2 {
-  color: white;
-
+  color: var(--textColor);
   text-align: center;
   margin: 10px;
   font-size: 25px;
@@ -212,21 +220,21 @@ h2 {
 .nav-link {
   margin-left: 2px;
   margin-right: 2px;
-  color: #1d3557;
+  color: var(--third);
 }
 
 .nav-link:hover{
-  background: #457b9d;
-  color: #f1faee;
+  background: var(--fourth);
+  color: var(--textColor);
   transition: 0.4s ease all;
 }
 
 #active {
   background: var(--secondary);
-  color: #f1faee;
+  color: var(--textColor);
 }
 
 #active:hover {
-  background: #f55662;
+  background: var(--fifth);
   transition: 0.4s ease all;
 }
