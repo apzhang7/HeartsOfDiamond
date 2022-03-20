@@ -15,12 +15,12 @@ Blue #457b9d
 Dark Blue #1d3557 */
 
 :root {
-  --primary: #a8dadc ;
-  --secondary: #e63946 ;
-  --third: #1d3557;
-  --fourth: #457b9d;
-  --fifth: #f55662;
-  --textColor: #f1faee;
+  --primary: #212529 ;
+  --secondary: #495057 ;
+  --third: #ced4da;
+  --fourth: #6c757d;
+  --fifth: #343a40;
+  --textColor: #e9ecef;
 }
 
 body {

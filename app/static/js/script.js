@@ -31,16 +31,16 @@ var addData = true;
 
 var changeToDefault = () => {
   localStorage.setItem("color",0);
-  document.documentElement.style.setProperty("--primary", "#a8dadc");
-  document.documentElement.style.setProperty("--secondary", "#e63946");
-  document.documentElement.style.setProperty("--third", "#1d3557");
-  document.documentElement.style.setProperty("--fourth", "#457b9d");
-  document.documentElement.style.setProperty("--fifth", "#f55662");
-  document.documentElement.style.setProperty("--textColor", "#f1faee");;
-  document.body.style.background = " url('https://filmdaily.co/wp-content/uploads/2021/02/Bliss-lede.jpg')";
+  document.documentElement.style.setProperty("--primary", "#212529");
+  document.documentElement.style.setProperty("--secondary", "#495057");
+  document.documentElement.style.setProperty("--third", "#ced4da");
+  document.documentElement.style.setProperty("--fourth", "#6c757d");
+  document.documentElement.style.setProperty("--fifth", "#343a40");
+  document.documentElement.style.setProperty("--textColor", "#e9ecef");
+  document.body.style.background = 'var(--fourth)';
 }
 
-var changeToAlternate = () => {
+var changeToClassic = () => {
   localStorage.setItem("color",1);
   document.documentElement.style.setProperty("--primary", "#a8dadc");
   document.documentElement.style.setProperty("--secondary", "#e63946");
@@ -62,19 +62,8 @@ var changeToWinter = () => {
   document.body.style.background = 'var(--fourth)';
 }
 
-var changeToMono = () => {
-  localStorage.setItem("color",3);
-  document.documentElement.style.setProperty("--primary", "#212529");
-  document.documentElement.style.setProperty("--secondary", "#495057");
-  document.documentElement.style.setProperty("--third", "#ced4da");
-  document.documentElement.style.setProperty("--fourth", "#6c757d");
-  document.documentElement.style.setProperty("--fifth", "#343a40");
-  document.documentElement.style.setProperty("--textColor", "#e9ecef");
-  document.body.style.background = 'var(--fourth)';
-}
-
 var changeToCoffee = () => {
-  localStorage.setItem("color",4);
+  localStorage.setItem("color",3);
   document.documentElement.style.setProperty("--primary", "#9c6644");
   document.documentElement.style.setProperty("--secondary", "#7f5539");
   document.documentElement.style.setProperty("--third", "#b08968");
@@ -106,12 +95,10 @@ var drawGrid = () => {
   if (localStorage.getItem("color") == 0) {
     changeToDefault();
   } else if (localStorage.getItem("color") == 1) {
-    changeToAlternate();
+    changeToClassic();
   } else if (localStorage.getItem("color") == 2) {
     changeToWinter();
   } else if (localStorage.getItem("color") == 3) {
-    changeToMono();
-  } else if (localStorage.getItem("color") == 4) {
     changeToCoffee();
   }
   if (localStorage.getItem("FirstRound?") == "false") {
@@ -570,9 +557,8 @@ var whichRude = () => {
 var colorButtons = colorDiv.getElementsByTagName('button');
 
 colorButtons[0].addEventListener('click',changeToDefault);
-colorButtons[1].addEventListener('click',changeToAlternate);
+colorButtons[1].addEventListener('click',changeToClassic);
 colorButtons[2].addEventListener('click',changeToWinter);
-colorButtons[3].addEventListener('click',changeToMono);
-colorButtons[4].addEventListener('click',changeToCoffee);
+colorButtons[3].addEventListener('click',changeToCoffee);
 
 whichRude();
