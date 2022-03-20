@@ -23,6 +23,8 @@ var lettersLeft = wordle ;
 var frame = 0 ;
 var column = 0 ;
 var fillColors ;
+var penaltyTime = 0;
+var gameBegin = false;
 var animating = false ;
 var addData = true;
 
@@ -30,12 +32,55 @@ var changeToDefault = () => {
   localStorage.setItem("color",0);
   document.documentElement.style.setProperty("--primary", "#a8dadc");
   document.documentElement.style.setProperty("--secondary", "#e63946");
+  document.documentElement.style.setProperty("--third", "#1d3557");
+  document.documentElement.style.setProperty("--fourth", "#457b9d");
+  document.documentElement.style.setProperty("--fifth", "#f55662");
+  document.documentElement.style.setProperty("--textColor", "#f1faee");;
+  document.body.style.background = " url('https://filmdaily.co/wp-content/uploads/2021/02/Bliss-lede.jpg')";
 }
 
 var changeToAlternate = () => {
   localStorage.setItem("color",1);
-  document.documentElement.style.setProperty("--primary", "#f5bfea");
-  document.documentElement.style.setProperty("--secondary", "#b390e0");
+  document.documentElement.style.setProperty("--primary", "#a8dadc");
+  document.documentElement.style.setProperty("--secondary", "#e63946");
+  document.documentElement.style.setProperty("--third", "#1d3557");
+  document.documentElement.style.setProperty("--fourth", "#457b9d");
+  document.documentElement.style.setProperty("--fifth", "#f55662");
+  document.documentElement.style.setProperty("--textColor", "#f1faee");;
+  document.body.style.background = 'var(--fourth)';
+}
+
+var changeToWinter = () => {
+  localStorage.setItem("color",2);
+  document.documentElement.style.setProperty("--primary", "#abc4ff");
+  document.documentElement.style.setProperty("--secondary", "#e2eafc");
+  document.documentElement.style.setProperty("--third", "#edf2fb");
+  document.documentElement.style.setProperty("--fourth", "#cddafd");
+  document.documentElement.style.setProperty("--fifth", "#edf6f9");
+  document.documentElement.style.setProperty("--textColor", "#012a4a");
+  document.body.style.background = 'var(--fourth)';
+}
+
+var changeToMono = () => {
+  localStorage.setItem("color",3);
+  document.documentElement.style.setProperty("--primary", "#212529");
+  document.documentElement.style.setProperty("--secondary", "#495057");
+  document.documentElement.style.setProperty("--third", "#ced4da");
+  document.documentElement.style.setProperty("--fourth", "#6c757d");
+  document.documentElement.style.setProperty("--fifth", "#343a40");
+  document.documentElement.style.setProperty("--textColor", "#e9ecef");
+  document.body.style.background = 'var(--fourth)';
+}
+
+var changeToCoffee = () => {
+  localStorage.setItem("color",4);
+  document.documentElement.style.setProperty("--primary", "#9c6644");
+  document.documentElement.style.setProperty("--secondary", "#7f5539");
+  document.documentElement.style.setProperty("--third", "#b08968");
+  document.documentElement.style.setProperty("--fourth", "#ddb892");
+  document.documentElement.style.setProperty("--fifth", "#e6ccb2");
+  document.documentElement.style.setProperty("--textColor", "#ede0d4");
+  document.body.style.background = 'var(--fourth)';
 }
 
 // draws the initial grid to play on
@@ -43,7 +88,7 @@ var drawGrid = () => {
   for(var k = 0 ; k<2; k++) {
     for(var j = 0; j<6; j++) {
       for(var i = 0; i<5; i++) {
-        ctx.strokeStyle = 'black'
+        ctx.strokeStyle = 'black';
         ctx.strokeRect(5+(i*65),5+(j*65),60,60);
         ctx.fillStyle = 'gray';
         ctx.fillRect(6+(i*65),6+(j*65),58,58);
@@ -59,9 +104,14 @@ var drawGrid = () => {
   }
   if (localStorage.getItem("color") == 0) {
     changeToDefault();
-  }
-  if (localStorage.getItem("color") == 1) {
+  } else if (localStorage.getItem("color") == 1) {
     changeToAlternate();
+  } else if (localStorage.getItem("color") == 2) {
+    changeToWinter();
+  } else if (localStorage.getItem("color") == 3) {
+    changeToMono();
+  } else if (localStorage.getItem("color") == 4) {
+    changeToCoffee();
   }
   if (localStorage.getItem("FirstRound?") == "false") {
     var concurrentScore = parseInt(localStorage.getItem("TotalScore"));
@@ -70,7 +120,9 @@ var drawGrid = () => {
     time = concurrentTime;
     localStorage.setItem("FirstRound?", true);
   } else {
+    var colorScheme = localStorage.getItem("color");
     localStorage.clear();
+    localStorage.setItem("color",colorScheme);
   }
   ctx.font = '20px Pragati Narrow';
   ctx.fillStyle = '#e63946';
@@ -95,7 +147,7 @@ function drawKeyboard() {
   var kb = 10;
   var key = 0;
   ktx.font = '25px Pragati Narrow';
-  ktx.fillStyle = 'white';
+  ktx.fillStyle = '#edf2f4';
   ktx.fillText("Letters Remaining",143,25);
   for (j = 0; j < 3; j++) {
     for (i = 0; i < kb; i++) {
@@ -129,7 +181,7 @@ function drawKey(keyNum, color) {
   var kb = 10;
   var key = 0;
   ktx.font = '25px Pragati Narrow';
-  ktx.fillStyle = 'white';
+  ktx.fillStyle = '#edf2f4';
   ktx.fillText("Letters Remaining",143,25);
   for (j = 0; j < 3; j++) {
     for (i = 0; i < kb; i++) {
@@ -196,6 +248,13 @@ var wordCheck = () => {
     guessedWords.push(currentLetters);
     correctLetterCount = 0;
     fillColors = ['black','black','black','black','black'] ;
+    if (gamemode === "/hard-wordle") {
+      for (var i = 0; i < 5; i++) {
+        if (lockedKeys.includes(guess.charAt(i))) {
+          penaltyTime += 10;
+        }
+      }
+    }
     for (var i = 0; i < 5; i++) {
       if (guess.charAt(i) === lettersLeft.charAt(i)) {
         lettersLeft = lettersLeft.substring(0,i)+'_'+lettersLeft.substring(i+1,5) ;
@@ -214,10 +273,9 @@ var wordCheck = () => {
         drawKey(guess.charAt(i).toUpperCase(), 'black');
       }
   // makes the rectangle transparent so that you can still see the letter
-  }
-  fillSquare() ;
-  lettersLeft = wordle ;
-
+    }
+    fillSquare() ;
+    lettersLeft = wordle ;
     return true;
   } else {
     showMessage();
@@ -268,6 +326,7 @@ function letter(e) {
         // next line if enter
         if (key == 13 && letterPosition[0] != 6 && !animating) {
           if (wordCheck()) {
+            gameBegin = true;
             continueButton.text = "Game is in session.";
             if (letterPosition[0] == 6) {
               time = 0;
@@ -307,7 +366,8 @@ var gameTimer = () => {
     var startTimer = Date.now();
     var id = setInterval(function() {
         var timeElapsed = Date.now() - startTimer; // time passed
-        var newTime = time - (Math.floor(timeElapsed/1000)); // in seconds
+        console.log(penaltyTime + " aa")
+        var newTime = time - (Math.floor(timeElapsed/1000)) - penaltyTime; // in seconds
         if (time > Math.pow(10,10)) {
           ctx.clearRect(331,71,118,58);
           ctx.font = '20px Pragati Narrow';
@@ -431,8 +491,14 @@ var check = () => {
 }
 
 var endGame = () => {
-  if (time > 0) {
+  if (time > 0 && gameBegin === true) {
     time = 0;
+    continueButton.text = "Ending game...";
+  } else {
+    continueButton.text = "The game hasn't started yet!";
+    setTimeout(function() {
+      continueButton.text = "Waiting for the game to begin.";
+    }, 1000);
   }
   console.log("total score is " + (totalScore + (correctLetterCount * 100)));
 }
@@ -491,6 +557,8 @@ var colorButtons = colorDiv.getElementsByTagName('button');
 
 colorButtons[0].addEventListener('click',changeToDefault);
 colorButtons[1].addEventListener('click',changeToAlternate);
-
+colorButtons[2].addEventListener('click',changeToWinter);
+colorButtons[3].addEventListener('click',changeToMono);
+colorButtons[4].addEventListener('click',changeToCoffee);
 
 whichRude();
