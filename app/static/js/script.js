@@ -19,7 +19,8 @@ var guessedWords = [];
 var correctLetterCount = 0;
 var totalScore = 0;
 var timeOn = false;
-var lettersLeft = wordle ;
+var lettersLeft = wordle;
+var mode = "";
 var frame = 0 ;
 var column = 0 ;
 var fillColors ;
@@ -141,6 +142,19 @@ var drawGrid = () => {
 
 drawGrid();
 document.addEventListener("keydown",letter);
+
+// sets the mode variable to the mode of the game
+function identifyMode() {
+  if (gamemode === "/") {
+    mode = "NORMAL";
+  } else if (gamemode === "/hard-wordle") {
+    mode = "HARD";
+  } else if (gamemode === "/chaos") {
+    mode = "CHAOS";
+  }
+}
+
+identifyMode();
 
 // draws a keyboard
 function drawKeyboard() {
@@ -398,6 +412,7 @@ var gameTimer = () => {
             var randomUser = generateUsername();
             document.getElementById('user').defaultValue = randomUser;
             document.getElementById('score').defaultValue = totalScore;
+            document.getElementById('mode').defaultValue = mode;
             document.getElementById('submit').style.display = "block";
           }, 1500);
           scoreCalc();
@@ -491,7 +506,7 @@ var check = () => {
 }
 
 var endGame = () => {
-  if (time > 0 && gameBegin === true) {
+  if (time > 0 && gameBegin === true && correctLetterCount < 5) {
     time = 0;
     continueButton.text = "Ending game...";
   } else {
@@ -526,7 +541,6 @@ var colorDisplay = () => {
 var btn = document.getElementById("giveUp");
 btn.addEventListener("click",endGame);
 btn.addEventListener("click",whichRude);
-
 
 var infoText = document.getElementById("infoText");
 
