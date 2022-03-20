@@ -19,7 +19,8 @@ c = db.cursor()
 c.execute("""
     CREATE TABLE IF NOT EXISTS LEADERBOARD (
         USER    TEXT,
-        SCORE   INTEGER
+        SCORE   INTEGER,
+        MODE    TEXT
     );""")
 db.commit()
 db.close()
@@ -43,24 +44,72 @@ def zen():
 
 @app.route("/leaderboard", methods = ['GET', 'POST'])
 def leaderboard():
+    statement = ""
     if request.method == "POST":
         if 'user' in request.form:
             db = sqlite3.connect(MAIN_DB)
             c = db.cursor()
             c.execute("""
-                INSERT INTO LEADERBOARD (USER, SCORE) VALUES (?,?)
-                """, ((request.form['user']), request.form['score']))
+                INSERT INTO LEADERBOARD (USER, SCORE, MODE) VALUES (?,?,?)
+                """, ((request.form['user'], request.form['score'], request.form['mode'])))
+            statement += """ 'request.form['mode']' '"""
             db.commit()
             db.close()
             return redirect("/leaderboard")
+    else:
+        statement = """ SELECT USER, SCORE FROM LEADERBOARD WHERE MODE = 'NORMAL' ORDER BY SCORE DESC"""
     db = sqlite3.connect(MAIN_DB)
     c = db.cursor()
-    c.execute("""
-        SELECT * FROM LEADERBOARD ORDER BY SCORE DESC
-        """,)
+    c.execute(statement)
     data = c.fetchall()
     db.close()
     return render_template("leaderboard.html", userScore = data, wordle = randomWord(), defaultTime = 2**53-1, words = wordBank(), addTime = 0, mode = "/leaderboard")
+
+@app.route("/leaderboard-hard", methods = ['GET', 'POST'])
+def leaderboardHard():
+    statement = ""
+    if request.method == "POST":
+        if 'user' in request.form:
+            db = sqlite3.connect(MAIN_DB)
+            c = db.cursor()
+            c.execute("""
+                INSERT INTO LEADERBOARD (USER, SCORE, MODE) VALUES (?,?,?)
+                """, ((request.form['user'], request.form['score'], request.form['mode'])))
+            statement += """ 'request.form['mode']' '"""
+            db.commit()
+            db.close()
+            return redirect("/leaderboard-hard")
+    else:
+        statement = """ SELECT USER, SCORE FROM LEADERBOARD WHERE MODE = 'HARD' ORDER BY SCORE DESC"""
+    db = sqlite3.connect(MAIN_DB)
+    c = db.cursor()
+    c.execute(statement)
+    data = c.fetchall()
+    db.close()
+    return render_template("leaderboard-hard.html", userScore = data, wordle = randomWord(), defaultTime = 2**53-1, words = wordBank(), addTime = 0, mode = "/leaderboard-hard")
+
+@app.route("/leaderboard-chaos", methods = ['GET', 'POST'])
+def leaderboardChaos():
+    statement = ""
+    if request.method == "POST":
+        if 'user' in request.form:
+            db = sqlite3.connect(MAIN_DB)
+            c = db.cursor()
+            c.execute("""
+                INSERT INTO LEADERBOARD (USER, SCORE, MODE) VALUES (?,?,?)
+                """, ((request.form['user'], request.form['score'], request.form['mode'])))
+            statement += """ 'request.form['mode']' '"""
+            db.commit()
+            db.close()
+            return redirect("/leaderboard-chaos")
+    else:
+        statement = """ SELECT USER, SCORE FROM LEADERBOARD WHERE MODE = 'CHAOS' ORDER BY SCORE DESC"""
+    db = sqlite3.connect(MAIN_DB)
+    c = db.cursor()
+    c.execute(statement)
+    data = c.fetchall()
+    db.close()
+    return render_template("leaderboard-chaos.html", userScore = data, wordle = randomWord(), defaultTime = 2**53-1, words = wordBank(), addTime = 0, mode = "/leaderboard-chaos")
 
 def randomWord():
     with open('static/words.txt') as file:
