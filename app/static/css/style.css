@@ -120,7 +120,8 @@ body {
 
 #colorButton:hover {
   cursor: pointer;
-  border-color: #d1d1d1;
+  border-color: var(--third);
+  transition: 0.4s ease all;
 }
 
 #colorDiv {
