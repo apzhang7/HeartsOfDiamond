@@ -163,3 +163,12 @@ angelaZ -- 2022-03-18 02:30
 
 jonathanW -- 2022-03-18 19:00
 - Remove formatting of extra text in the leaderboard page
+
+jonathanW -- 2022-03-20 01:29
+- Added time penalty for wrong guesses in hard mode
+- JS now counts for number of wrong penalty guesses for hard mode
+- Fixed bug that allows you the end the game before it even started
+- More color features, now on ALL the pages!
+- Renamed Rude mode to Chaos mode to be more appropriate
+- Added a few more transition animations for some buttons
+- Leaderboard functionality works for all pages
