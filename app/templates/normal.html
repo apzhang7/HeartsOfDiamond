@@ -20,7 +20,7 @@ Time Spent: ?? -->
     <button id="colorButton"></button>
     <a class="nav-link" id="active" style=""href="/">Normal</a>
     <a class="nav-link" href="/hard-wordle">Hard</a>
-    <a class="nav-link" href="/rude">Rude</a>
+    <a class="nav-link" href="/chaos">Chaos</a>
     <a class="nav-link" href="/zen">Zen</a>
     <a class="nav-link" href="/leaderboard">Leaderboard</a>
     <button id="infoButton">?</button>
@@ -41,8 +41,11 @@ Time Spent: ?? -->
   </script>
 </nav>
 <div class="hide" id="colorDiv">
-  <button class="colorText" id="default">default</button> <br style="margin-top: 30px;">
-  <button class="colorText" id="alt">alt</button> <br style="margin-top: 30px;">
+  <button class="colorText" id="default">Default</button> <br style="margin-top: 30px;">
+  <button class="colorText" id="alt">No BG</button> <br>
+  <button class="colorText" id="Winter">Winter</button> <br>
+  <button class="colorText" id="Monochrome">Monochrome</button> <br>
+  <button class="colorText" id="Coffee">Coffee</button> <br>
 </div>
 <p class="hide" id="infoText">Guess as many <b>WORDLE</b>s as you can in 180 seconds. <br>
   The player will gain 60 seconds and 500 points for correctly guessing the word within
@@ -63,7 +66,7 @@ Time Spent: ?? -->
       <a href = "/leaderboard">
         <input type="submit" value="Submit" name="user">
       <a>
-      <a href = "/">
+      <a id="refresh" href = "/">
         <input type="button" value="No, play again!">
       </a>
     </div>

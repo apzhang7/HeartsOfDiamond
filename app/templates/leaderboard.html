@@ -19,11 +19,13 @@ Time Spent: ?? -->
   <body>
     <nav class="wordleNav">
       <nav class="nav nav-pills nav-justified justify-content-center">
+          <button id="colorButton"></button>
           <a class="nav-link" href="/">Normal</a>
           <a class="nav-link" href="/hard-wordle">Hard</a>
-          <a class="nav-link" href="/rude">Rude</a>
+          <a class="nav-link" href="/chaos">Chaos</a>
           <a class="nav-link" href="/zen">Zen</a>
           <a class="nav-link" id="active" href="/leaderboard">Leaderboard</a>
+          <button class="hide" id="infoButton">?</button>
       </nav>
     </nav>
     <div class = "titleName">
@@ -32,14 +34,12 @@ Time Spent: ?? -->
     <nav class="leaderboard nav nav-pills nav-justified justify-content-center">
           <a class="nav-link" id="active" href="/">Normal</a>
           <!-- <a class="nav-link" href="/hard-wordle">Hard</a>
-          <a class="nav-link" href="/rude">Rude</a> -->
+          <a class="nav-link" href="/chaos">Chaos</a> -->
     </nav>
     <div class = "leaderboard">
       <table>
         <tr>
-          <div class ="left">
-            <th> Username </th>
-          </div>
+          <th> Username </th>
           <th> Score </th>
         </tr>
         {% for data in userScore %}
@@ -50,8 +50,38 @@ Time Spent: ?? -->
         {% endfor %}
       </table>
     </div>
-    <canvas width="455" height="460" class="hide" id="playground"></canvas>
-    <canvas width="455" height="165" class="hide" id="keyboard"></canvas>
+    <div class="hide" id="colorDiv">
+      <button class="colorText" id="default">Default</button> <br style="margin-top: 30px;">
+      <button class="colorText" id="alt">No BG</button> <br>
+      <button class="colorText" id="Winter">Winter</button> <br>
+      <button class="colorText" id="Monochrome">Monochrome</button> <br>
+      <button class="colorText" id="Coffee">Coffee</button> <br>
+    </div>
+    <script>
+        const wordBank = "{{ words }}".split(" ");
+        var wordle = "{{ wordle }}";
+        var time = {{ defaultTime }};
+        var moreTime = {{ addTime }};
+        var gamemode = "{{ mode }}";
+        wordle = wordle.toUpperCase();
+    </script>
+    <div class = "hide">
+      <div class = "titleName">
+        <h1> Wordle Mania!™ </h1>
+      </div>
+      <div class="canvas-container">
+        <div id= "wordleGrid" style="margin-left:118px">
+          <canvas width="455" height="460" id="playground"></canvas>
+          <button id="giveUp">End Game</button>
+        </div>
+        <div class = "continueButton">
+          <a id="continue"> Waiting for the game to begin. </a>
+        </div>
+      </div>
+      <div id= "wordleGrid">
+        <canvas width="455" height="165" id="keyboard"></canvas>
+      </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

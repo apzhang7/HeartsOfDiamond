@@ -12,9 +12,10 @@ Time Spent: ?? -->
 {% block content %}
 <nav class="wordleNav">
   <nav class="nav nav-pills nav-justified justify-content-center">
+      <button id="colorButton"></button>
       <a class="nav-link" href="/">Normal</a>
       <a class="nav-link" href="/hard-wordle">Hard</a>
-      <a class="nav-link" id="active" href="/rude">Rude</a>
+      <a class="nav-link" id="active" href="/chaos">Chaos</a>
       <a class="nav-link" href="/zen">Zen</a>
       <a class="nav-link" href="/leaderboard">Leaderboard</a>
       <button id="infoButton">?</button>
@@ -47,6 +48,13 @@ Time Spent: ?? -->
       wordle = wordle.toUpperCase();
   </script>
 </nav>
+<div class="hide" id="colorDiv">
+  <button class="colorText" id="default">Default</button> <br style="margin-top: 30px;">
+  <button class="colorText" id="alt">No BG</button> <br>
+  <button class="colorText" id="Winter">Winter</button> <br>
+  <button class="colorText" id="Monochrome">Monochrome</button> <br>
+  <button class="colorText" id="Coffee">Coffee</button> <br>
+</div>
 <div id = "submit" class = "submitScore hide">
   <h2> Do you want to submit your score? </h2>
   <form action = "leaderboard" method = "POST">
@@ -59,7 +67,7 @@ Time Spent: ?? -->
       <a href = "/leaderboard">
         <input type="submit" value="Submit" name="user">
       <a>
-      <a href = "/">
+      <a href = "/rude">
         <input type="button" value="No, play again!">
       </a>
     </div>
