@@ -266,6 +266,7 @@ var wordCheck = () => {
     }
     for (var i = 0; i < 5; i++) {
       if ((lettersLeft.includes(guess.charAt(i))) & (fillColors[i] != 'green')) {
+        lettersLeft = lettersLeft.substring(0,lettersLeft.indexOf(guess[i]))+'_'+lettersLeft.substring(lettersLeft.indexOf(guess[i])+1,5) ;
         fillColors[i] = 'yellow';
         drawKey(guess.charAt(i).toUpperCase(), 'yellow');
       }
