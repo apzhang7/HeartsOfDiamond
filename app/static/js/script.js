@@ -320,7 +320,7 @@ function letter(e) {
       currentLetters = currentLetters.substring(0,letterPosition[1]) ;
     }
     // if 'enter' or letter
-    else if ((key == 13) || (key >= 65 && key <= 90)) {
+    else if (((key == 13) || (key >= 65 && key <= 90)) & (!guessedWords.includes(wordle))) {
       if (letterPosition[1] == 5) {
         // next line if enter
         if (key == 13 && letterPosition[0] != 6 && !animating) {
