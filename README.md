@@ -15,7 +15,7 @@ Our project, Wordle Mania!™, is a unique take on the hit game Wordle, in which
 
 
 ## Launch Codes
-The following instructions assume that you have Python and pip already installed.
+The following instructions assume that you have python and pip already installed.
 
 1. Clone this repository.
 ```
@@ -41,3 +41,8 @@ $ source env/bin/activate
 ```
 
 You can access our web app by going to http://127.0.0.1:5000/.
+
+## DigitalOcean Droplet
+Alternatively, you can access the web app on our website hosted via DigitalOcean by going to http://167.99.5.186.
+
+Happy Wordle-ing!
