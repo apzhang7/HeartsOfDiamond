@@ -74,7 +74,7 @@ def leaderboardHard():
             c = db.cursor()
             c.execute("""
                 INSERT INTO LEADERBOARD (USER, SCORE, MODE) VALUES (?,?,?)
-                """, ((request.form['user'], request.form['score'], request.form['mode'])))
+                """, ((request.form['user'][:32], request.form['score'], request.form['mode'])))
             statement += """ 'request.form['mode']' '"""
             db.commit()
             db.close()
