@@ -56,7 +56,7 @@ var changeToWinter = () => {
   document.documentElement.style.setProperty("--primary", "#abc4ff");
   document.documentElement.style.setProperty("--secondary", "#e2eafc");
   document.documentElement.style.setProperty("--third", "#edf2fb");
-  document.documentElement.style.setProperty("--fourth", "#cddafd");
+  document.documentElement.style.setProperty("--fourth", "#b0bfe8");
   document.documentElement.style.setProperty("--fifth", "#edf6f9");
   document.documentElement.style.setProperty("--textColor", "#012a4a");
   document.body.style.background = 'var(--fourth)';
