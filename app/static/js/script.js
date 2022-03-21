@@ -8,7 +8,7 @@ var c = document.getElementById("playground"); // GET CANVAS
 var k = document.getElementById("keyboard");
 var continueButton = document.getElementById('continue');
 var ctx = c.getContext('2d');
-var ktx = k.getContext('2d');
+var ktx = k.getContext('2d');7
 var requestID = false;  //init global var for use with animation frames
 var letterPosition = [0,0];
 var keyboard = ['Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M'];
@@ -127,7 +127,7 @@ var drawGrid = () => {
   ctx.fillText("Score: " +  + totalScore, 335, 40);
 }
 
-drawGrid();
+window.addEventListener('load', drawGrid);
 document.addEventListener("keydown",letter);
 
 // sets the mode variable to the mode of the game
@@ -224,7 +224,7 @@ function drawKey(keyNum, color) {
   }
 }
 
-drawKeyboard();
+window.addEventListener('load', drawKeyboard);
 
 // updates the score once called upon
 function scoreCalc () {
