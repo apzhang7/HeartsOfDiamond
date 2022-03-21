@@ -262,7 +262,6 @@ var wordCheck = () => {
         fillColors[i] = 'green';
         correctLetterCount++;
         drawKey(guess.charAt(i).toUpperCase(), 'green');
-        console.log(lettersLeft);
       }
     }
     for (var i = 0; i < 5; i++) {
@@ -310,7 +309,6 @@ var fillSquare = () => {
 function letter(e) {
   if (time > 0) {
     key = e.keyCode ;
-    console.log(key);
     ctx.font = '48px Pragati Narrow';
     // if backspace, clear space
     if ((key == 8) & (letterPosition[1] != 0)) {
@@ -323,7 +321,6 @@ function letter(e) {
     // if 'enter' or letter
     else if ((key == 13) || (key >= 65 && key <= 90)) {
       if (letterPosition[1] == 5) {
-        console.log("full");
         // next line if enter
         if (key == 13 && letterPosition[0] != 6 && !animating) {
           if (wordCheck()) {
@@ -360,14 +357,11 @@ function letter(e) {
   }
 };
 
-console.log(wordle);
-
 // a timer to time the game
 var gameTimer = () => {
     var startTimer = Date.now();
     var id = setInterval(function() {
         var timeElapsed = Date.now() - startTimer; // time passed
-        console.log(penaltyTime + " aa")
         var newTime = time - (Math.floor(timeElapsed/1000)) - penaltyTime; // in seconds
         if (time > Math.pow(10,10)) {
           ctx.clearRect(331,71,118,58);
@@ -483,11 +477,9 @@ function showMessage() {
 // checks if the word makes the generated word
 var check = () => {
     if (currentLetters === wordle) {
-      console.log("same") ;
       return true ;
     }
     else {
-      console.log("no") ;
       return false ;
     }
 }
@@ -502,7 +494,6 @@ var endGame = () => {
       continueButton.text = "Waiting for the game to begin.";
     }, 1000);
   }
-  console.log("total score is " + (totalScore + (correctLetterCount * 100)));
 }
 
 var displayInfo = () => {
@@ -512,7 +503,6 @@ var displayInfo = () => {
   else {
     infoText.className = "hide";
   }
-  console.log(infoText.className);
 }
 
 var colorDisplay = () => {
@@ -522,7 +512,6 @@ var colorDisplay = () => {
   else {
     colorDiv.className = "hide";
   }
-  console.log(colorDiv.className);
 }
 
 var btn = document.getElementById("giveUp");
