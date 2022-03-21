@@ -378,7 +378,7 @@ var gameTimer = () => {
           ctx.fillStyle = '#3b3b3b';
           ctx.fillText("Time Left: " + newTime + "s", 335, 105);
         }
-        if (newTime <= 0 || letterPosition[0] == 6) {
+        if (newTime <= 0 || (letterPosition[0] == 6 && correctLetterCount !=5)) {
           ctx.clearRect(331,71,118,58);
           ctx.font = '20px Pragati Narrow';
           ctx.fillStyle = '#e3e3e3';
