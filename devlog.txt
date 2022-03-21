@@ -161,6 +161,13 @@ angelaZ -- 2022-03-18 02:30
 - Added 4 "insults" for rude
 - Rude sounds will be triggered based off the last correctLetterCount (W.I.P.)
 
+jesseX -- 2022-03-18 09:41
+- Began working on button to change color theme
+
+jesseX -- 2022-03-18 18:43
+- Continued working on button for color themes
+- Added basic alternate color scheme (changes html elements)
+
 jonathanW -- 2022-03-18 19:00
 - Remove formatting of extra text in the leaderboard page
 
@@ -172,3 +179,13 @@ jonathanW -- 2022-03-20 01:29
 - Renamed Rude mode to Chaos mode to be more appropriate
 - Added a few more transition animations for some buttons
 - Leaderboard functionality works for all pages
+
+jesseX -- 2022-03-20 14:46
+- Changed the color of some buttons in html with a static color
+
+jesseX -- 2022-03-20 20:38
+- Updated color themes button to have the default to be the monochrome option
+- Removed hill background from themes
+- Renamed blue/red theme to classic and shifted color tags accordingly
+- Launched web app onto digital ocean droplet at http://167.99.5.186
+- Removed all the console.log statements from js
