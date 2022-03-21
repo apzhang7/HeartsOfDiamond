@@ -43,6 +43,7 @@ $ source env/bin/activate
 You can access our web app by going to http://127.0.0.1:5000/.
 
 ## DigitalOcean Droplet
-Alternatively, you can access the web app on our website hosted via DigitalOcean by going to http://167.99.5.186.
+Alternatively, you can access the web app on our website hosted via DigitalOcean by going to http://167.99.5.186.  
+Mac Users: Please use a browser other than Safari, as the website may be slow or not work properly.
 
 Happy Wordle-ing!
