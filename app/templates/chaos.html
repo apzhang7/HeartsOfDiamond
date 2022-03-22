@@ -39,7 +39,12 @@ Time Spent: ?? -->
       var gamemode = "{{ mode }}";
       wordle = wordle.toUpperCase();
       var music = document.getElementById("music");
-      music.volume = 0.5;
+      music.volume = 0.2;
+      document.addEventListener("keydown", () => {
+        var key = new Audio();
+        key.src = "../static/audio/key.mp3";
+        key.play();
+      });
   </script>
 </nav>
 <div class="hide" id="colorDiv">

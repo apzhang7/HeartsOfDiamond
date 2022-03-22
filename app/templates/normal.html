@@ -33,7 +33,12 @@ Time Spent: ?? -->
       wordle = wordle.toUpperCase();
       var music = document.getElementById("music");
       music.volume = 0.1;
-  </script>
+      document.addEventListener("keydown", () => {
+        var key = new Audio();
+        key.src = "../static/audio/key.mp3";
+        key.play();
+      });
+  </script>  
 </nav>
 <div class="hide" id="colorDiv">
   <button class="colorText" id="default">Default</button> <br style="margin-top: 30px;">
