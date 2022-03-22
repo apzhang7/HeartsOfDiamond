@@ -543,20 +543,6 @@ var colorDiv = document.getElementById("colorDiv");
 var colorButton = document.getElementById("colorButton");
 colorButton.addEventListener("click",colorDisplay);
 
-var whichRude = () => {
-  if (correctLetterCount == 1) {
-    document.getElementById('oneRight').play();
-  }
-  else if (correctLetterCount == 2) {
-    document.getElementById('twoRight').play();
-  }
-  else if (correctLetterCount == 3) {
-    document.getElementById('threeRight').play();
-  }
-  else {
-    document.getElementById('fourRight').play();
-  }
-}
 
 var colorButtons = colorDiv.getElementsByTagName('button');
 
@@ -565,5 +551,3 @@ colorButtons[1].addEventListener('click',changeToClassic);
 colorButtons[2].addEventListener('click',changeToWinter);
 colorButtons[3].addEventListener('click',changeToCoffee);
 colorButtons[4].addEventListener('click',changeToSeafoam);
-
-whichRude();
