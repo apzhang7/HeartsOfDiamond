@@ -84,6 +84,28 @@ var changeToSeafoam = () => {
   document.body.style.background = 'var(--fourth)';
 }
 
+var changeToForest = () => {
+  localStorage.setItem("color",5);
+  document.documentElement.style.setProperty("--primary", "#344e41");
+  document.documentElement.style.setProperty("--secondary", "#6a994e");
+  document.documentElement.style.setProperty("--third", "#a3b18a");
+  document.documentElement.style.setProperty("--fourth", "#588157");
+  document.documentElement.style.setProperty("--fifth", "#3a5a40");
+  document.documentElement.style.setProperty("--textColor", "#dad7cd");
+  document.body.style.background = 'var(--fourth)';
+}
+
+var changeToNavy = () => {
+  localStorage.setItem("color",6);
+  document.documentElement.style.setProperty("--primary", "#6a90a1");
+  document.documentElement.style.setProperty("--secondary", "#166088");
+  document.documentElement.style.setProperty("--third", "#233d4d");
+  document.documentElement.style.setProperty("--fourth", "#4a6fa5");
+  document.documentElement.style.setProperty("--fifth", "#c0d6df");
+  document.documentElement.style.setProperty("--textColor", "#dbe9ee");
+  document.body.style.background = 'var(--fourth)';
+}
+
 // draws the initial grid to play on
 var drawGrid = () => {
   for(var k = 0 ; k<2; k++) {
@@ -111,6 +133,12 @@ var drawGrid = () => {
     changeToWinter();
   } else if (localStorage.getItem("color") == 3) {
     changeToCoffee();
+  } else if (localStorage.getItem("color") == 4) {
+    changeToSeafoam();
+  } else if (localStorage.getItem("color") == 5) {
+    changeToForest();
+  } else if (localStorage.getItem("color") == 6) {
+    changeToNavy();
   }
   if (localStorage.getItem("FirstRound?") == "false") {
     var concurrentScore = parseInt(localStorage.getItem("TotalScore"));
@@ -531,7 +559,6 @@ var colorDisplay = () => {
 
 var btn = document.getElementById("giveUp");
 btn.addEventListener("click",endGame);
-btn.addEventListener("click",whichRude);
 
 var infoText = document.getElementById("infoText");
 
@@ -551,3 +578,5 @@ colorButtons[1].addEventListener('click',changeToClassic);
 colorButtons[2].addEventListener('click',changeToWinter);
 colorButtons[3].addEventListener('click',changeToCoffee);
 colorButtons[4].addEventListener('click',changeToSeafoam);
+colorButtons[5].addEventListener('click',changeToForest);
+colorButtons[6].addEventListener('click',changeToNavy);
