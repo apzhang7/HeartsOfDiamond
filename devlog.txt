@@ -189,3 +189,13 @@ jesseX -- 2022-03-20 20:38
 - Renamed blue/red theme to classic and shifted color tags accordingly
 - Launched web app onto digital ocean droplet at http://167.99.5.186
 - Removed all the console.log statements from js
+
+jesseX -- 2022-03-21 09:48
+- Added username character limit
+- Added code to prevent to two of the same letter from being highlighted in a guess when it only occurs once
+- Added code to have proper font on first load
+
+jesseX -- 2022-03-21 22:30
+- Code to prevent letters from being inputted after wordle has been guessed
+- Bug fix with incorrect color display on keyboard after guess multiple of same letter
+- Fixed favicon display
