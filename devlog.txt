@@ -199,3 +199,7 @@ jesseX -- 2022-03-21 22:30
 - Code to prevent letters from being inputted after wordle has been guessed
 - Bug fix with incorrect color display on keyboard after guess multiple of same letter
 - Fixed favicon display
+
+angelaZ -- 2022-03-22 07:05
+- Bug fix for hardMusic repeating after a minute
+- Audio click for every keypress added
