@@ -219,7 +219,7 @@ function drawKey(keyNum, color) {
     }
     kb = kb - j - 1;
   }
-  if (!lockedKeys.includes(keyNum) && color != 'yellow') {
+  if (!lockedKeys.includes(keyNum) && color != '#c9b216') {
     lockedKeys.push(keyNum);
   }
 }
@@ -248,7 +248,7 @@ var wordCheck = () => {
   if (wordBank.includes(guess.toLowerCase())) {
     guessedWords.push(currentLetters);
     correctLetterCount = 0;
-    fillColors = ['black','black','black','black','black'] ;
+    fillColors = ['#404040','#404040','#404040','#404040','#404040'] ;
     if (gamemode === "/hard-wordle") {
       for (var i = 0; i < 5; i++) {
         if (lockedKeys.includes(guess.charAt(i)) && !wordle.includes(guess.charAt(i))) {
@@ -259,16 +259,16 @@ var wordCheck = () => {
     for (var i = 0; i < 5; i++) {
       if (guess.charAt(i) === lettersLeft.charAt(i)) {
         lettersLeft = lettersLeft.substring(0,i)+'_'+lettersLeft.substring(i+1,5) ;
-        fillColors[i] = 'green';
+        fillColors[i] = '#2a9129';
         correctLetterCount++;
-        drawKey(guess.charAt(i).toUpperCase(), 'green');
+        drawKey(guess.charAt(i).toUpperCase(), '#2a9129');
       }
     }
     for (var i = 0; i < 5; i++) {
-      if ((lettersLeft.includes(guess.charAt(i))) & (fillColors[i] != 'green')) {
+      if ((lettersLeft.includes(guess.charAt(i))) & (fillColors[i] != '#2a9129')) {
         lettersLeft = lettersLeft.substring(0,lettersLeft.indexOf(guess[i]))+'_'+lettersLeft.substring(lettersLeft.indexOf(guess[i])+1,5) ;
-        fillColors[i] = 'yellow';
-        drawKey(guess.charAt(i).toUpperCase(), 'yellow');
+        fillColors[i] = '#c9b216';
+        drawKey(guess.charAt(i).toUpperCase(), '#c9b216');
       }
       else if (!wordle.includes(guess.charAt(i))) {
         drawKey(guess.charAt(i).toUpperCase(), 'black');
@@ -291,9 +291,12 @@ var fillSquare = () => {
   speed = 4 ;
   if (frame >= 58) speed-=2 ;
   ctx.fillStyle = fillColors[column] ;
-  ctx.globalAlpha = 0.2;
+  ctx.globalAlpha = 0.5;
   ctx.fillRect(6+(column*65),2+((guessedWords.length-1)*65)+frame,58,speed);
   ctx.globalAlpha = 1;
+  ctx.font = '48px Pragati Narrow';
+  ctx.fillStyle = 'black' ;
+  ctx.fillText(guessedWords[guessedWords.length-1][column],23+(column*65),51+((guessedWords.length-1)*65));
   requestID = window.requestAnimationFrame(fillSquare) ;
   if (frame >= 58) {
     column++;
