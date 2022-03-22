@@ -73,6 +73,17 @@ var changeToCoffee = () => {
   document.body.style.background = 'var(--fourth)';
 }
 
+var changeToSeafoam = () => {
+  localStorage.setItem("color",4);
+  document.documentElement.style.setProperty("--primary", "#57cc99");
+  document.documentElement.style.setProperty("--secondary", "#72efdd");
+  document.documentElement.style.setProperty("--third", "#c7f9cc");
+  document.documentElement.style.setProperty("--fourth", "#38a3a5");
+  document.documentElement.style.setProperty("--fifth", "#22577a");
+  document.documentElement.style.setProperty("--textColor", "#212f45");
+  document.body.style.background = 'var(--fourth)';
+}
+
 // draws the initial grid to play on
 var drawGrid = () => {
   for(var k = 0 ; k<2; k++) {
@@ -553,5 +564,6 @@ colorButtons[0].addEventListener('click',changeToDefault);
 colorButtons[1].addEventListener('click',changeToClassic);
 colorButtons[2].addEventListener('click',changeToWinter);
 colorButtons[3].addEventListener('click',changeToCoffee);
+colorButtons[4].addEventListener('click',changeToSeafoam);
 
 whichRude();
