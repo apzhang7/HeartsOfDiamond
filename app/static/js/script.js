@@ -270,7 +270,7 @@ var wordCheck = () => {
         fillColors[i] = 'yellow';
         drawKey(guess.charAt(i).toUpperCase(), 'yellow');
       }
-      else {
+      else if (!wordle.includes(guess.charAt(i))) {
         drawKey(guess.charAt(i).toUpperCase(), 'black');
       }
   // makes the rectangle transparent so that you can still see the letter
