@@ -88,10 +88,10 @@ var changeToForest = () => {
   localStorage.setItem("color",5);
   document.documentElement.style.setProperty("--primary", "#344e41");
   document.documentElement.style.setProperty("--secondary", "#6a994e");
-  document.documentElement.style.setProperty("--third", "#a3b18a");
+  document.documentElement.style.setProperty("--third", "#91b18a");
   document.documentElement.style.setProperty("--fourth", "#588157");
   document.documentElement.style.setProperty("--fifth", "#3a5a40");
-  document.documentElement.style.setProperty("--textColor", "#dad7cd");
+  document.documentElement.style.setProperty("--textColor", "#d5f5dd");
   document.body.style.background = 'var(--fourth)';
 }
 
