@@ -31,12 +31,12 @@ var addData = true;
 
 var changeToDefault = () => {
   localStorage.setItem("color",0);
-  document.documentElement.style.setProperty("--primary", "#212529");
-  document.documentElement.style.setProperty("--secondary", "#495057");
-  document.documentElement.style.setProperty("--third", "#ced4da");
-  document.documentElement.style.setProperty("--fourth", "#6c757d");
-  document.documentElement.style.setProperty("--fifth", "#343a40");
-  document.documentElement.style.setProperty("--textColor", "#e9ecef");
+  document.documentElement.style.setProperty("--primary", "#212529"); //nav
+  document.documentElement.style.setProperty("--secondary", "#495057"); //continue and nav
+  document.documentElement.style.setProperty("--third", "#ced4da"); //nav text
+  document.documentElement.style.setProperty("--fourth", "#6c757d"); //background
+  document.documentElement.style.setProperty("--fifth", "#343a40"); //button hover
+  document.documentElement.style.setProperty("--textColor", "#e9ecef"); //wordle text
   document.body.style.background = 'var(--fourth)';
 }
 
@@ -106,6 +106,39 @@ var changeToNavy = () => {
   document.body.style.background = 'var(--fourth)';
 }
 
+var changeToCandy = () => {
+  localStorage.setItem("color",7);
+  document.documentElement.style.setProperty("--primary", "#ffa0cc");
+  document.documentElement.style.setProperty("--secondary", "#a2d2ff");
+  document.documentElement.style.setProperty("--third", "#fff6f9");
+  document.documentElement.style.setProperty("--fourth", "#ffafcc");
+  document.documentElement.style.setProperty("--fifth", "#54F6FF");
+  document.documentElement.style.setProperty("--textColor", "#ffffff");
+  document.body.style.background = 'var(--fourth)';
+}
+
+var changeToGrapefruit = () => {
+  localStorage.setItem("color",8);
+  document.documentElement.style.setProperty("--primary", "#fc987e");
+  document.documentElement.style.setProperty("--secondary", "#fdc47f");
+  document.documentElement.style.setProperty("--third", "#fcd27e");
+  document.documentElement.style.setProperty("--fourth", "#fba67d");
+  document.documentElement.style.setProperty("--fifth", "#fcb57f");
+  document.documentElement.style.setProperty("--textColor", "#FFFFFF");;
+  document.body.style.background = 'var(--fourth)';
+}
+
+var changeToMars = () => {
+  localStorage.setItem("color",9);
+  document.documentElement.style.setProperty("--primary", "#780116");
+  document.documentElement.style.setProperty("--secondary", "#8c2f39");
+  document.documentElement.style.setProperty("--third", "#fcb9b2");
+  document.documentElement.style.setProperty("--fourth", "#d62839");
+  document.documentElement.style.setProperty("--fifth", "#b23a48");
+  document.documentElement.style.setProperty("--textColor", "#fed0bb");
+  document.body.style.background = 'var(--fourth)';
+}
+
 // draws the initial grid to play on
 var drawGrid = () => {
   for(var k = 0 ; k<2; k++) {
@@ -139,6 +172,12 @@ var drawGrid = () => {
     changeToForest();
   } else if (localStorage.getItem("color") == 6) {
     changeToNavy();
+  } else if (localStorage.getItem("color") == 7) {
+    changeToCandy();
+  } else if (localStorage.getItem("color") == 8) {
+    changeToCreamsicle();
+  } else if (localStorage.getItem("color") == 9) {
+    changeToMars();
   }
   if (localStorage.getItem("FirstRound?") == "false") {
     var concurrentScore = parseInt(localStorage.getItem("TotalScore"));
@@ -580,3 +619,6 @@ colorButtons[3].addEventListener('click',changeToCoffee);
 colorButtons[4].addEventListener('click',changeToSeafoam);
 colorButtons[5].addEventListener('click',changeToForest);
 colorButtons[6].addEventListener('click',changeToNavy);
+colorButtons[7].addEventListener('click',changeToCandy);
+colorButtons[8].addEventListener('click',changeToCreamsicle);
+colorButtons[9].addEventListener('click',changeToMars);
