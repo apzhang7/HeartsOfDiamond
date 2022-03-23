@@ -31,12 +31,12 @@ var addData = true;
 
 var changeToDefault = () => {
   localStorage.setItem("color",0);
-  document.documentElement.style.setProperty("--primary", "#212529");
-  document.documentElement.style.setProperty("--secondary", "#495057");
-  document.documentElement.style.setProperty("--third", "#ced4da");
-  document.documentElement.style.setProperty("--fourth", "#6c757d");
-  document.documentElement.style.setProperty("--fifth", "#343a40");
-  document.documentElement.style.setProperty("--textColor", "#e9ecef");
+  document.documentElement.style.setProperty("--primary", "#212529"); //nav
+  document.documentElement.style.setProperty("--secondary", "#495057"); //continue and nav
+  document.documentElement.style.setProperty("--third", "#ced4da"); //nav text
+  document.documentElement.style.setProperty("--fourth", "#6c757d"); //background
+  document.documentElement.style.setProperty("--fifth", "#343a40"); //button hover
+  document.documentElement.style.setProperty("--textColor", "#e9ecef"); //wordle text
   document.body.style.background = 'var(--fourth)';
 }
 
@@ -106,7 +106,7 @@ var changeToWinter = () => {
   document.body.style.background = 'var(--fourth)';
 }
 
-var changeToGrapefruit = () => {
+var changeToCreamsicle = () => {
   localStorage.setItem("color",7);
   document.documentElement.style.setProperty("--primary", "#fc987e");
   document.documentElement.style.setProperty("--secondary", "#fdc47f");
@@ -138,7 +138,6 @@ var changeToSeafoam = () => {
   document.documentElement.style.setProperty("--textColor", "#212f45");
   document.body.style.background = 'var(--fourth)';
 }
-
 
 // draws the initial grid to play on
 var drawGrid = () => {
@@ -174,7 +173,7 @@ var drawGrid = () => {
   } else if (localStorage.getItem("color") == 6) {
     changeToWinter();
   } else if (localStorage.getItem("color") == 7) {
-    changeToGrapefruit();
+    changeToCreamsicle();
   } else if (localStorage.getItem("color") == 8) {
     changeToCandy();
   } else if (localStorage.getItem("color") == 9) {
@@ -620,6 +619,6 @@ colorButtons[3].addEventListener('click',changeToForest);
 colorButtons[4].addEventListener('click',changeToNavy);
 colorButtons[5].addEventListener('click',changeToCoffee);
 colorButtons[6].addEventListener('click',changeToWinter);
-colorButtons[7].addEventListener('click',changeToGrapefruit);
+colorButtons[7].addEventListener('click',changeToCreamsicle);
 colorButtons[8].addEventListener('click',changeToCandy);
 colorButtons[9].addEventListener('click',changeToSeafoam);

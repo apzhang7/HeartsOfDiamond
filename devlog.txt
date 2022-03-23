@@ -206,8 +206,11 @@ angelaZ -- 2022-03-22 07:05
 
 jesseX -- 2022-03-22 09:53
 - Changed background of grid when letters are unveiled slightly
-- Added three new color themes
+- Added three new color themes (seafoam, forest, navy)
 
 jesseX -- 2022-03-22 19:04
 - Minor color theme changes
 - Changed background of give up button
+
+angelaZ -- 2022-03-22 20:46
+- Added three new color themes (candy, creamsicle, mars)
