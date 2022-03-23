@@ -596,6 +596,19 @@ var colorDisplay = () => {
   }
 }
 
+var music = document.getElementById("music");
+
+var muteToggle = () => {
+  if (music.volume == 0.0) {
+    document.documentElement.style.setProperty("--volume","url('../images/volumeOn.png')");
+    music.volume = 0.1 ;
+  }
+  else {
+    document.documentElement.style.setProperty("--volume","url('../images/volumeOff.png')");
+    music.volume = 0.0 ;
+  }
+}
+
 var btn = document.getElementById("giveUp");
 btn.addEventListener("click",endGame);
 
@@ -608,6 +621,9 @@ var colorDiv = document.getElementById("colorDiv");
 
 var colorButton = document.getElementById("colorButton");
 colorButton.addEventListener("click",colorDisplay);
+
+var muteButton = document.getElementById("muteButton");
+muteButton.addEventListener("click",muteToggle);
 
 
 var colorButtons = colorDiv.getElementsByTagName('button');
