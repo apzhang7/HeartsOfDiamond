@@ -203,3 +203,11 @@ jesseX -- 2022-03-21 22:30
 angelaZ -- 2022-03-22 07:05
 - Bug fix for hardMusic repeating after a minute
 - Audio click for every keypress added
+
+jesseX -- 2022-03-22 09:53
+- Changed background of grid when letters are unveiled slightly
+- Added three new color themes
+
+jesseX -- 2022-03-22 19:04
+- Minor color theme changes
+- Changed background of give up button

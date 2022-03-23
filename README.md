@@ -3,7 +3,7 @@ Team: HeartsOfDiamond -- Angela Zhang (Inky), Jonathan Wu (Loki), Jesse Xie (Pol
 SoftDev  
 P02 -- SoftDev Project 2021-22
 
-## Project Description: 
+## Project Description:
 Our project, Wordle Mania!™, is a unique take on the hit game Wordle, in which players try to guess as many of the randomly generated 5 letter words correctly as possible. In our version, players will have two versions that they can select - a default mode, and a hard mode. In both main versions, players will try to complete as many words as possible in the time allotted. Depending on the mode, players may gain or lose time based on how they play. Players will compete for highscores for their own enjoyment or for a leaderboard where players may input a desired name after a session.  
 
 ---
@@ -37,13 +37,13 @@ $ source env/bin/activate
 5. Run the app.
 ```
 (env) $ cd app
-(env) $ python3 __init__.py 
+(env) $ python3 __init__.py
 ```
 
 You can access our web app by going to http://127.0.0.1:5000/.
 
 ## DigitalOcean Droplet
-Alternatively, you can access the web app on our website hosted via DigitalOcean by going to http://167.99.5.186.  
+Alternatively, you can access the web app on our website hosted via DigitalOcean by going to http://167.99.5.186/.  
 Mac Users: Please use a browser other than Safari, as the website may be slow or not work properly.
 
 Happy Wordle-ing!
