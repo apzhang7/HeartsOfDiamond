@@ -31,12 +31,12 @@ var addData = true;
 
 var changeToDefault = () => {
   localStorage.setItem("color",0);
-  document.documentElement.style.setProperty("--primary", "#212529"); //nav
-  document.documentElement.style.setProperty("--secondary", "#495057"); //continue and nav
-  document.documentElement.style.setProperty("--third", "#ced4da"); //nav text
-  document.documentElement.style.setProperty("--fourth", "#6c757d"); //background
-  document.documentElement.style.setProperty("--fifth", "#DE7DC8"); //button hover
-  document.documentElement.style.setProperty("--textColor", "#e9ecef"); //wordle text
+  document.documentElement.style.setProperty("--primary", "#212529");
+  document.documentElement.style.setProperty("--secondary", "#495057");
+  document.documentElement.style.setProperty("--third", "#ced4da");
+  document.documentElement.style.setProperty("--fourth", "#6c757d");
+  document.documentElement.style.setProperty("--fifth", "#343a40");
+  document.documentElement.style.setProperty("--textColor", "#e9ecef");
   document.body.style.background = 'var(--fourth)';
 }
 
@@ -83,7 +83,6 @@ var changeToNavy = () => {
   document.documentElement.style.setProperty("--textColor", "#dbe9ee");
   document.body.style.background = 'var(--fourth)';
 }
-
 
 var changeToCoffee = () => {
   localStorage.setItem("color",5);
