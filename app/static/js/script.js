@@ -51,41 +51,19 @@ var changeToClassic = () => {
   document.body.style.background = 'var(--fourth)';
 }
 
-var changeToWinter = () => {
+var changeToMars = () => {
   localStorage.setItem("color",2);
-  document.documentElement.style.setProperty("--primary", "#abc4ff");
-  document.documentElement.style.setProperty("--secondary", "#e2eafc");
-  document.documentElement.style.setProperty("--third", "#edf2fb");
-  document.documentElement.style.setProperty("--fourth", "#b0bfe8");
-  document.documentElement.style.setProperty("--fifth", "#edf6f9");
-  document.documentElement.style.setProperty("--textColor", "#012a4a");
-  document.body.style.background = 'var(--fourth)';
-}
-
-var changeToCoffee = () => {
-  localStorage.setItem("color",3);
-  document.documentElement.style.setProperty("--primary", "#9c6644");
-  document.documentElement.style.setProperty("--secondary", "#7f5539");
-  document.documentElement.style.setProperty("--third", "#b08968");
-  document.documentElement.style.setProperty("--fourth", "#ddb892");
-  document.documentElement.style.setProperty("--fifth", "#e6ccb2");
-  document.documentElement.style.setProperty("--textColor", "#ede0d4");
-  document.body.style.background = 'var(--fourth)';
-}
-
-var changeToSeafoam = () => {
-  localStorage.setItem("color",4);
-  document.documentElement.style.setProperty("--primary", "#57cc99");
-  document.documentElement.style.setProperty("--secondary", "#72efdd");
-  document.documentElement.style.setProperty("--third", "#c7f9cc");
-  document.documentElement.style.setProperty("--fourth", "#38a3a5");
-  document.documentElement.style.setProperty("--fifth", "#22577a");
-  document.documentElement.style.setProperty("--textColor", "#212f45");
+  document.documentElement.style.setProperty("--primary", "#780116");
+  document.documentElement.style.setProperty("--secondary", "#8c2f39");
+  document.documentElement.style.setProperty("--third", "#fcb9b2");
+  document.documentElement.style.setProperty("--fourth", "#d62839");
+  document.documentElement.style.setProperty("--fifth", "#b23a48");
+  document.documentElement.style.setProperty("--textColor", "#fed0bb");
   document.body.style.background = 'var(--fourth)';
 }
 
 var changeToForest = () => {
-  localStorage.setItem("color",5);
+  localStorage.setItem("color",3);
   document.documentElement.style.setProperty("--primary", "#344e41");
   document.documentElement.style.setProperty("--secondary", "#6a994e");
   document.documentElement.style.setProperty("--third", "#91b18a");
@@ -96,7 +74,7 @@ var changeToForest = () => {
 }
 
 var changeToNavy = () => {
-  localStorage.setItem("color",6);
+  localStorage.setItem("color",4);
   document.documentElement.style.setProperty("--primary", "#6a90a1");
   document.documentElement.style.setProperty("--secondary", "#166088");
   document.documentElement.style.setProperty("--third", "#233d4d");
@@ -106,19 +84,31 @@ var changeToNavy = () => {
   document.body.style.background = 'var(--fourth)';
 }
 
-var changeToCandy = () => {
-  localStorage.setItem("color",7);
-  document.documentElement.style.setProperty("--primary", "#ffa0cc");
-  document.documentElement.style.setProperty("--secondary", "#a2d2ff");
-  document.documentElement.style.setProperty("--third", "#fff6f9");
-  document.documentElement.style.setProperty("--fourth", "#ffafcc");
-  document.documentElement.style.setProperty("--fifth", "#54F6FF");
-  document.documentElement.style.setProperty("--textColor", "#ffffff");
+
+var changeToCoffee = () => {
+  localStorage.setItem("color",5);
+  document.documentElement.style.setProperty("--primary", "#9c6644");
+  document.documentElement.style.setProperty("--secondary", "#7f5539");
+  document.documentElement.style.setProperty("--third", "#b08968");
+  document.documentElement.style.setProperty("--fourth", "#ddb892");
+  document.documentElement.style.setProperty("--fifth", "#e6ccb2");
+  document.documentElement.style.setProperty("--textColor", "#ede0d4");
+  document.body.style.background = 'var(--fourth)';
+}
+
+var changeToWinter = () => {
+  localStorage.setItem("color",6);
+  document.documentElement.style.setProperty("--primary", "#abc4ff");
+  document.documentElement.style.setProperty("--secondary", "#e2eafc");
+  document.documentElement.style.setProperty("--third", "#edf2fb");
+  document.documentElement.style.setProperty("--fourth", "#b0bfe8");
+  document.documentElement.style.setProperty("--fifth", "#edf6f9");
+  document.documentElement.style.setProperty("--textColor", "#012a4a");
   document.body.style.background = 'var(--fourth)';
 }
 
 var changeToGrapefruit = () => {
-  localStorage.setItem("color",8);
+  localStorage.setItem("color",7);
   document.documentElement.style.setProperty("--primary", "#fc987e");
   document.documentElement.style.setProperty("--secondary", "#fdc47f");
   document.documentElement.style.setProperty("--third", "#fcd27e");
@@ -128,16 +118,28 @@ var changeToGrapefruit = () => {
   document.body.style.background = 'var(--fourth)';
 }
 
-var changeToMars = () => {
-  localStorage.setItem("color",9);
-  document.documentElement.style.setProperty("--primary", "#780116");
-  document.documentElement.style.setProperty("--secondary", "#8c2f39");
-  document.documentElement.style.setProperty("--third", "#fcb9b2");
-  document.documentElement.style.setProperty("--fourth", "#d62839");
-  document.documentElement.style.setProperty("--fifth", "#b23a48");
-  document.documentElement.style.setProperty("--textColor", "#fed0bb");
+var changeToCandy = () => {
+  localStorage.setItem("color",8);
+  document.documentElement.style.setProperty("--primary", "#ffa0cc");
+  document.documentElement.style.setProperty("--secondary", "#a2d2ff");
+  document.documentElement.style.setProperty("--third", "#fff6f9");
+  document.documentElement.style.setProperty("--fourth", "#ffafcc");
+  document.documentElement.style.setProperty("--fifth", "#54F6FF");
+  document.documentElement.style.setProperty("--textColor", "#ffffff");
   document.body.style.background = 'var(--fourth)';
 }
+
+var changeToSeafoam = () => {
+  localStorage.setItem("color",9);
+  document.documentElement.style.setProperty("--primary", "#57cc99");
+  document.documentElement.style.setProperty("--secondary", "#72efdd");
+  document.documentElement.style.setProperty("--third", "#c7f9cc");
+  document.documentElement.style.setProperty("--fourth", "#38a3a5");
+  document.documentElement.style.setProperty("--fifth", "#22577a");
+  document.documentElement.style.setProperty("--textColor", "#212f45");
+  document.body.style.background = 'var(--fourth)';
+}
+
 
 // draws the initial grid to play on
 var drawGrid = () => {
@@ -163,21 +165,21 @@ var drawGrid = () => {
   } else if (localStorage.getItem("color") == 1) {
     changeToClassic();
   } else if (localStorage.getItem("color") == 2) {
-    changeToWinter();
-  } else if (localStorage.getItem("color") == 3) {
-    changeToCoffee();
-  } else if (localStorage.getItem("color") == 4) {
-    changeToSeafoam();
-  } else if (localStorage.getItem("color") == 5) {
-    changeToForest();
-  } else if (localStorage.getItem("color") == 6) {
-    changeToNavy();
-  } else if (localStorage.getItem("color") == 7) {
-    changeToCandy();
-  } else if (localStorage.getItem("color") == 8) {
-    changeToGrapefruit();
-  } else if (localStorage.getItem("color") == 9) {
     changeToMars();
+  } else if (localStorage.getItem("color") == 3) {
+    changeToForest();
+  } else if (localStorage.getItem("color") == 4) {
+    changeToNavy();
+  } else if (localStorage.getItem("color") == 5) {
+    changeToCoffee();
+  } else if (localStorage.getItem("color") == 6) {
+    changeToWinter();
+  } else if (localStorage.getItem("color") == 7) {
+    changeToGrapefruit();
+  } else if (localStorage.getItem("color") == 8) {
+    changeToCandy();
+  } else if (localStorage.getItem("color") == 9) {
+    changeToSeafoam();
   }
   if (localStorage.getItem("FirstRound?") == "false") {
     var concurrentScore = parseInt(localStorage.getItem("TotalScore"));
@@ -614,11 +616,11 @@ var colorButtons = colorDiv.getElementsByTagName('button');
 
 colorButtons[0].addEventListener('click',changeToDefault);
 colorButtons[1].addEventListener('click',changeToClassic);
-colorButtons[2].addEventListener('click',changeToWinter);
-colorButtons[3].addEventListener('click',changeToCoffee);
-colorButtons[4].addEventListener('click',changeToSeafoam);
-colorButtons[5].addEventListener('click',changeToForest);
-colorButtons[6].addEventListener('click',changeToNavy);
-colorButtons[7].addEventListener('click',changeToCandy);
-colorButtons[8].addEventListener('click',changeToGrapefruit);
-colorButtons[9].addEventListener('click',changeToMars);
+colorButtons[2].addEventListener('click',changeToMars);
+colorButtons[3].addEventListener('click',changeToForest);
+colorButtons[4].addEventListener('click',changeToNavy);
+colorButtons[5].addEventListener('click',changeToCoffee);
+colorButtons[6].addEventListener('click',changeToWinter);
+colorButtons[7].addEventListener('click',changeToGrapefruit);
+colorButtons[8].addEventListener('click',changeToCandy);
+colorButtons[9].addEventListener('click',changeToSeafoam);
