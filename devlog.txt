@@ -214,3 +214,9 @@ jesseX -- 2022-03-22 19:04
 
 angelaZ -- 2022-03-22 20:46
 - Added three new color themes (candy, creamsicle, mars)
+
+jesseX -- 2022-03-22 7:53
+- Reordered buttons under themes
+
+jesseX -- 2022-03-23 7:56
+- Added volume toggle button
