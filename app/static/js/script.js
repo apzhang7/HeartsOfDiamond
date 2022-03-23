@@ -117,7 +117,7 @@ var changeToCandy = () => {
   document.body.style.background = 'var(--fourth)';
 }
 
-var changeToGrapefruit = () => {
+var changeToCreamsicle = () => {
   localStorage.setItem("color",8);
   document.documentElement.style.setProperty("--primary", "#fc987e");
   document.documentElement.style.setProperty("--secondary", "#fdc47f");
