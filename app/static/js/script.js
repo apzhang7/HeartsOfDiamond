@@ -182,7 +182,7 @@ var drawGrid = () => {
   if (localStorage.getItem("volume") == 'on') {
     document.documentElement.style.setProperty("--volume","url('../images/volumeOn.png')");
     music.volume = 0.1 ;
-  } else {
+  } else if (localStorage.getItem("volume") == 'off'){
     document.documentElement.style.setProperty("--volume","url('../images/volumeOff.png')");
     music.volume = 0.0 ;
   }
