@@ -21,6 +21,7 @@ Dark Blue #1d3557 */
   --fourth: #6c757d;
   --fifth: #343a40;
   --textColor: #e9ecef;
+  --volume: url('../images/volumeOn.png');
 }
 
 body {
@@ -75,6 +76,22 @@ body {
   background: var(--secondary);
   margin-bottom: 50px;
   transition: 0.4s ease all;
+}
+
+#muteButton {
+  background: var(--volume);
+  margin-top: 7px;
+  position: absolute;
+  right: 60px;
+  width: 30px;
+  height: 30px;
+  z-index: 100;
+  border-radius: 40px;
+  border: none;
+}
+
+#muteButton:hover {
+  cursor: pointer;
 }
 
 #infoButton {
