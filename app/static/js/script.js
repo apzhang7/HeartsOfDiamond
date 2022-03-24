@@ -194,8 +194,10 @@ var drawGrid = () => {
     localStorage.setItem("FirstRound?", true);
   } else {
     var colorScheme = localStorage.getItem("color");
+    var volume = localStorage.getItem("volume");
     localStorage.clear();
     localStorage.setItem("color",colorScheme);
+    localStorage.setItem("volume",volume);
   }
   ctx.font = '20px Pragati Narrow';
   ctx.fillStyle = '#3b3b3b';
