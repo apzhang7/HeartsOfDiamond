@@ -214,3 +214,6 @@ jesseX -- 2022-03-22 19:04
 
 angelaZ -- 2022-03-22 20:46
 - Added three new color themes (candy, creamsicle, mars)
+
+angelaZ -- 2022-03-23 20:44
+- Changed times to become more manic for all modes, chaos is shorter than both times
