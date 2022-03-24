@@ -179,6 +179,13 @@ var drawGrid = () => {
   } else if (localStorage.getItem("color") == 9) {
     changeToSeafoam();
   }
+  if (localStorage.getItem("volume") == 'on') {
+    document.documentElement.style.setProperty("--volume","url('../images/volumeOn.png')");
+    music.volume = 0.1 ;
+  } else {
+    document.documentElement.style.setProperty("--volume","url('../images/volumeOff.png')");
+    music.volume = 0.0 ;
+  }
   if (localStorage.getItem("FirstRound?") == "false") {
     var concurrentScore = parseInt(localStorage.getItem("TotalScore"));
     var concurrentTime = parseInt(localStorage.getItem("TimeLeft"));
@@ -600,10 +607,12 @@ var music = document.getElementById("music");
 
 var muteToggle = () => {
   if (music.volume == 0.0) {
+    localStorage.setItem("volume","on");
     document.documentElement.style.setProperty("--volume","url('../images/volumeOn.png')");
     music.volume = 0.1 ;
   }
   else {
+    localStorage.setItem("volume","off");
     document.documentElement.style.setProperty("--volume","url('../images/volumeOff.png')");
     music.volume = 0.0 ;
   }
