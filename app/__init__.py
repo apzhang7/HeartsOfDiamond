@@ -28,15 +28,15 @@ db.close()
 @app.route("/")
 def normalWordle():
     #userInput = request.form['user']
-    return render_template("normal.html", wordle = randomWord(), defaultTime = 180, words = wordBank(), addTime = 60, mode = "/")
+    return render_template("normal.html", wordle = randomWord(), defaultTime = 120, words = wordBank(), addTime = 60, mode = "/")
 
 @app.route("/hard-wordle")
 def hardWordle():
     return render_template("hard.html", wordle = randomWord(), defaultTime = 90, words = wordBank(), addTime = 30, mode = "/hard-wordle")
 
 @app.route("/chaos")
-def rude():
-    return render_template("chaos.html", wordle = randomWord(), defaultTime = 180, words = wordBank(), addTime = 60, mode = "/chaos")
+def chaos():
+    return render_template("chaos.html", wordle = randomWord(), defaultTime = 60, words = wordBank(), addTime = 15, mode = "/chaos")
 
 @app.route("/zen")
 def zen():
