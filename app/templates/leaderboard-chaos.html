@@ -33,10 +33,22 @@ Time Spent: ?? -->
       <h1> Leaderboard </h1>
     </div>
     <nav class="leaderboard nav nav-pills nav-justified justify-content-center">
-          <a class="nav-link" href="/leaderboard">Normal</a>
-          <a class="nav-link" href="/leaderboard-hard">Hard</a>
-          <a class="nav-link" id="active" href="/leaderboard-chaos">Chaos</a>
+      <a class="nav-link" href="/leaderboard">Normal</a>
+      <a class="nav-link" href="/leaderboard-hard">Hard</a>
+      <a class="nav-link" id="active" href="/leaderboard-chaos">Chaos</a>
     </nav>
+    <div class="hide" id="colorDiv">
+      <button class="colorText" id="default">Default</button> <br style="margin-top: 30px;">
+      <button class="colorText" id="classic">Classic</button> <br>
+      <button class="colorText" id="mars">Mars</button> <br>
+      <button class="colorText" id="forest">Forest</button> <br>
+      <button class="colorText" id="navy">Navy</button> <br>
+      <button class="colorText" id="coffee">Coffee</button> <br>
+      <button class="colorText" id="winter">Winter</button> <br>
+      <button class="colorText" id="creamsicle">Creamsicle</button> <br>
+      <button class="colorText" id="candy">Candy</button> <br>
+      <button class="colorText" id="seafoam">Seafoam</button> <br>
+    </div>
     <div class = "leaderboard">
       <table>
         <tr>
@@ -50,18 +62,6 @@ Time Spent: ?? -->
         </tr>
         {% endfor %}
       </table>
-    </div>
-    <div class="hide" id="colorDiv">
-      <button class="colorText" id="default">Default</button> <br style="margin-top: 30px;">
-      <button class="colorText" id="classic">Classic</button> <br>
-      <button class="colorText" id="mars">Mars</button> <br>
-      <button class="colorText" id="forest">Forest</button> <br>
-      <button class="colorText" id="navy">Navy</button> <br>
-      <button class="colorText" id="coffee">Coffee</button> <br>
-      <button class="colorText" id="winter">Winter</button> <br>
-      <button class="colorText" id="creamsicle">Creamsicle</button> <br>
-      <button class="colorText" id="candy">Candy</button> <br>
-      <button class="colorText" id="seafoam">Seafoam</button> <br>
     </div>
     <script>
         const wordBank = "{{ words }}".split(" ");
