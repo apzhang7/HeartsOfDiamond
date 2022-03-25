@@ -160,6 +160,7 @@ angelaZ -- 2022-03-18 02:30
 - Added autoplay looping background music with adjustable volume to every mode but rude
 - Added 4 "insults" for rude
 - Rude sounds will be triggered based off the last correctLetterCount (W.I.P.)
+- Edit: Scraped idea for insults as its taken too much time to implement
 
 jesseX -- 2022-03-18 09:41
 - Began working on button to change color theme
@@ -223,3 +224,8 @@ jesseX -- 2022-03-23 7:56
 
 angelaZ -- 2022-03-23 20:50
 - Changed times of all modes except zen
+
+angelaZ -- 2022-03-24 20:26
+- Updated design doc
+- Deleted excess audio files
+- Updated info cards for all modes
